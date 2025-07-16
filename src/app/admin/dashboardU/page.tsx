@@ -12,176 +12,157 @@ export default function page() {
                 </nav>
             </div>
         </header>
-        <main className="flex flex-col w-full font-main my-20 text-gray-700 bg-white justify-center items-center ">
+        <main className="flex flex-col w-full font-main my-15 text-gray-700 bg-white justify-center items-center ">
             <div className="xl:w-10/12">
                 <h2 className="text-xl mb-3">Bienvenida, Dra Basso</h2>
-                <table className="text-left h-[700px] border border-slate-300 shadow-md rounded-lg table-auto  w-full">
-                    <thead className="h-14">
-                        <tr>
-                            <td className="border border-slate-300 bg-slate-50 text-center">Nombre de Cliente</td>
-                            <td className="border border-slate-300 bg-slate-50 text-center">Fecha de Alta</td>
-                            <td className="border border-slate-300 bg-slate-50 text-center">Usuario</td>
-                            <td className="border border-slate-300 bg-slate-50 text-center">Contraseña</td>
-                            <td className="border border-slate-300 bg-slate-50 text-center">Documentos</td>
-                        </tr>
-                    </thead>
-                    <tbody className="max-h-full border border-slate-300 overflow-y-scroll">
-                        <tr className="border border-slate-300">
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                        </tr>
-                        <tr className="border border-slate-300">
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                        </tr>
-                        <tr className="border border-slate-300">
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                        </tr>
-                        <tr className="border border-slate-300">
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                        </tr>
-                        <tr className="border border-slate-300">
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                        </tr>
-                        <tr className="border border-slate-300">
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                        </tr>
-                        <tr className="border border-slate-300">
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                        </tr>
-                        <tr className="border border-slate-300">
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                        </tr>
-                        <tr className="border border-slate-300">
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                        </tr>
-                        <tr className="border border-slate-300">
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                        </tr>
-                        <tr className="border border-slate-300">
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                        </tr>
-                        <tr className="border border-slate-300">
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                        </tr>
-                        <tr className="border border-slate-300">
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                        </tr>
-                        <tr className="border border-slate-300">
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                        </tr>
-                        <tr className="border border-slate-300">
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                        </tr>
-                        <tr className="border border-slate-300">
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                        </tr>
-                        <tr className="border border-slate-300">
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                        </tr>
-                        <tr className="border border-slate-300">
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                        </tr>
-                        <tr className="border border-slate-300">
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                        </tr>
-                        <tr className="border border-slate-300">
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                        </tr>
-                        <tr className="border border-slate-300">
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                        </tr>
-                        <tr className="border border-slate-300">
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                            <td className="p-4 border text-sm border-slate-200">asd</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div className="h-[700px] overflow-y-scroll">
+                    <table className="text-left border border-slate-300 shadow-md rounded-lg table-auto w-full">
+                        <thead className="h-14">
+                            <tr>
+                                <th className="border border-slate-300 bg-slate-50 text-center">Nombre de Cliente</th>
+                                <th className="border border-slate-300 bg-slate-50 text-center">Fecha de Alta</th>
+                                <th className="border border-slate-300 bg-slate-50 text-center">Usuario</th>
+                                <th className="border border-slate-300 bg-slate-50 text-center">Contraseña</th>
+                                <th className="border border-slate-300 bg-slate-50 text-center">Documentos</th>
+                            </tr>
+                        </thead>
+                        <tbody className="border border-slate-300">
+                            <tr className="h-12 border border-slate-300">
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                            </tr>
+                            <tr className="h-12 border border-slate-300">
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                            </tr>
+                            <tr className="h-12 border border-slate-300">
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                            </tr>
+                            <tr className="h-12 border border-slate-300">
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                            </tr>
+                            <tr className="h-12 border border-slate-300">
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                            </tr>
+                            <tr className="h-12 border border-slate-300">
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                            </tr>
+                            <tr className="h-12 border border-slate-300">
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                            </tr>
+                            <tr className="h-12 border border-slate-300">
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                            </tr>
+                            <tr className="h-12 border border-slate-300">
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                            </tr>
+                            <tr className="h-12 border border-slate-300">
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                            </tr>
+                            <tr className="h-12 border border-slate-300">
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                            </tr>
+                            <tr className="h-12 border border-slate-300">
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                            </tr>
+                            <tr className="h-12 border border-slate-300">
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                            </tr>
+                            <tr className="h-12 border border-slate-300">
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                            </tr>
+                            <tr className="h-12 border border-slate-300">
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                            </tr>
+                            <tr className="h-12 border border-slate-300">
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                            </tr>
+                            <tr className="h-12 border border-slate-300">
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                            </tr>
+                            <tr className="h-12 border border-slate-300">
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                            </tr>
+                            <tr className="h-12 border border-slate-300">
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                                <td className="p-4 border text-sm border-slate-200">asd</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </main>
     </>
