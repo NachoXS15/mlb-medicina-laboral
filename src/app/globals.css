@@ -24,10 +24,6 @@
 }
 
 @media (prefers-color-scheme: dark) {
-	:root {
-		--background: var(--s-shadow);
-		--foreground: #ededed;
-	}
 }
 
 body {
