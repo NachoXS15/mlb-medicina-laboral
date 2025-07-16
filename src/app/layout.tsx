@@ -7,8 +7,6 @@ import Footer from "./components/Footer";
 const geistSans = Geist({
 	variable: "--font-geist-sans",
 	subsets: ["latin"],
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
 });
 
 const geistMono = Geist_Mono({
@@ -17,9 +15,9 @@ const geistMono = Geist_Mono({
 });
 
 const merriweatherSans = Merriweather_Sans({
-  variable: "--font-merriweather-sans",
-  subsets: ["latin"],
-  style: "normal"
+	variable: "--font-merriweather-sans",
+	subsets: ["latin"],
+	style: "normal",
 });
 
 export const metadata: Metadata = {
@@ -32,13 +30,15 @@ export default function RootLayout({
 }: Readonly<{
 	children: React.ReactNode;
 }>) {
-  return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} ${merriweatherSans.variable} antialiased`}
-      >
-        {children}
-      </body>
-    </html>
-  );
+	return (
+		<html lang="en">
+			<body
+				className={`${geistSans.variable} ${geistMono.variable} ${merriweatherSans.variable} antialiased`}
+			>
+				<Header />
+				{children}
+				<Footer />
+			</body>
+		</html>
+	);
 }
