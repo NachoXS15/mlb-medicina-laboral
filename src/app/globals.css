@@ -3,13 +3,18 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --bluemain: #4767aa;
+  --bronze: #aa8a47;
 }
 
 @theme inline {
+  --color-bluemain: var(--bluemain);
+  --color-bronze: var(--bronze);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-main: var(--font-merriweather-sans);
 }
 
 @media (prefers-color-scheme: dark) {
