@@ -39,7 +39,7 @@ export default async function Footer() {
 					</div>
 				</div>
 			</div>
-			<p className="text-center text-sm">
+			<p className="text-center text-sm text-white">
 				Copyright &copy; 2025 | Diseñado por:{" "}
 			</p>
 		</footer>
