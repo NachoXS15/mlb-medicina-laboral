@@ -34,7 +34,7 @@ body {
 }
 
 #clients .carrousel-item {
-	@apply h-25 md:h-45 aspect-square bg-slate-300 rounded-full flex-shrink-0;
+	@apply h-35 md:h-45 aspect-square bg-slate-300 rounded-full flex-shrink-0;
 }
 
 @media (prefers-color-scheme: dark) {

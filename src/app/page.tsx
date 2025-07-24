@@ -1,5 +1,5 @@
 import Link from "next/link";
-
+import Carousel from "./components/Carousel";
 export default function Home() {
 	return (
 		<>
@@ -88,24 +88,7 @@ export default function Home() {
 					<h4 className="text-lg lg:text-2xl font-bold pl-2 md:pl-0 text-center">
 						Ellos confian en nosotros
 					</h4>
-					<div
-						id="carrousel"
-						className="flex relativewhitespace-nowrap gap-5 animate-scroll"
-					>
-						<div className="carrousel-item"></div>
-						<div className="carrousel-item"></div>
-						<div className="carrousel-item"></div>
-						<div className="carrousel-item"></div>
-						<div className="carrousel-item"></div>
-						<div className="carrousel-item"></div>
-						<div className="carrousel-item"></div>
-						<div className="carrousel-item"></div>
-						<div className="carrousel-item"></div>
-						<div className="carrousel-item"></div>
-						<div className="carrousel-item"></div>
-						<div className="carrousel-item"></div>
-						<div className="carrousel-item"></div>
-					</div>
+					<Carousel />
 				</section>
 			</main>
 			<div id="contact" className="bg-f-shadow">
