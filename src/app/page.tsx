@@ -1,5 +1,7 @@
 import Link from "next/link";
 import Carousel from "./components/Carousel";
+import Image from "next/image";
+
 export default function Home() {
 	return (
 		<>
@@ -53,29 +55,131 @@ export default function Home() {
 					</h4>
 					<div className="flex w-full flex-wrap">
 						<div className="w-full md:w-1/2 lg:w-1/4 h-65 lg:h-85 pb-5 pl-5">
-							<div className="gallery-item"></div>
+							<div className="gallery-item">
+								<Image
+									src="/services/service-01.png"
+									width="234"
+									height="318"
+									alt="imagen"
+								/>
+								<div className="absolute right-0 top-0 lg:top-65 lg:bottom-0 z-40 py-2 px-2 bg-bluemain w-1/2 h-full lg:w-full lg:h-auto flex items-center justify-center">
+									<p className="text-center font-bold  ">
+										Capacitaciones de RCP y primeros
+										auxilios
+									</p>
+								</div>
+							</div>
 						</div>
 						<div className="w-full md:w-1/2 lg:w-1/4 h-65 lg:h-85 pb-5 pl-5">
-							<div className="gallery-item"></div>
+							<div className="gallery-item">
+								<Image
+									src="/services/service-02.png"
+									width="234"
+									height="318"
+									alt="imagen"
+								/>
+								<div className="absolute right-0 top-0 lg:top-65 lg:bottom-0 z-40 py-2 px-2 bg-bluemain w-1/2 h-full lg:w-full lg:h-auto flex items-center justify-center">
+									<p className="text-center font-bold  ">
+										Médico en planta
+									</p>
+								</div>
+							</div>
 						</div>
 						<div className="w-full md:w-1/2 lg:w-1/4 h-65 lg:h-85 pb-5 pl-5">
-							<div className="gallery-item"></div>
+							<div className="gallery-item">
+								<Image
+									src="/services/service-03.png"
+									width="234"
+									height="318"
+									alt="imagen"
+								/>
+								<div className="absolute right-0 top-0 lg:top-65 lg:bottom-0 z-40 py-2 px-2 bg-bluemain w-1/2 h-full lg:w-full lg:h-auto flex items-center justify-center">
+									<p className="text-center font-bold  ">
+										Realización de exámenes preocupacionales
+									</p>
+								</div>
+							</div>
 						</div>
 						<div className="w-full md:w-1/2 lg:w-1/4 h-65 lg:h-85 pb-5 pl-5">
-							<div className="gallery-item"></div>
+							<div className="gallery-item">
+								<Image
+									src="/services/service-04.png"
+									width="234"
+									height="318"
+									alt="imagen"
+								/>
+								<div className="absolute right-0 top-0 lg:top-65 lg:bottom-0 z-40 py-2 px-2 bg-bluemain w-1/2 h-full lg:w-full lg:h-auto flex items-center justify-center">
+									<p className="text-center font-bold  ">
+										Auditorias médicas
+									</p>
+								</div>
+							</div>
 						</div>
 						<div className="w-full md:w-1/2 lg:w-1/4 h-65 lg:h-85 pb-5 pl-5">
-							<div className="gallery-item"></div>
+							<div className="gallery-item">
+								<Image
+									src="/services/service.png"
+									width="234"
+									height="318"
+									alt="imagen"
+								/>
+								<div className="absolute right-0 top-0 lg:top-65 lg:bottom-0 z-40 py-2 px-2 bg-bluemain w-1/2 h-full lg:w-full lg:h-auto flex items-center justify-center">
+									<p className="text-center font-bold">
+										"Completar"
+									</p>
+								</div>
+							</div>
 						</div>
 						<div className="w-full md:w-1/2 lg:w-1/4 h-65 lg:h-85 pb-5 pl-5">
-							<div className="gallery-item"></div>
+							<div className="gallery-item">
+								<Image
+									src="/services/service.png"
+									width="234"
+									height="318"
+									alt="imagen"
+								/>
+								<div className="absolute right-0 top-0 lg:top-65 lg:bottom-0 z-40 py-2 px-2 bg-bluemain w-1/2 h-full lg:w-full lg:h-auto flex items-center justify-center">
+									<p className="text-center font-bold  ">
+										"Completar"
+									</p>
+								</div>
+							</div>
 						</div>
 						<div className="w-full md:w-1/2 lg:w-1/4 h-65 lg:h-85 pb-5 pl-5">
-							<div className="gallery-item"></div>
+							<div className="gallery-item">
+								<Image
+									src="/services/service.png"
+									width="234"
+									height="318"
+									alt="imagen"
+								/>
+								<div className="absolute right-0 top-0 lg:top-65 lg:bottom-0 z-40 py-2 px-2 bg-bluemain w-1/2 h-full lg:w-full lg:h-auto flex items-center justify-center">
+									<p className="text-center font-bold  ">
+										"Completar"
+									</p>
+								</div>
+							</div>
 						</div>
 						<div className="w-full md:w-1/2 lg:w-1/4 h-65 lg:h-85 pb-5 pl-5">
-							<div className="gallery-item"></div>
+							<div className="gallery-item">
+								<Image
+									src="/services/service.png"
+									width="234"
+									height="318"
+									alt="imagen"
+								/>
+								<div className="absolute right-0 top-0 lg:top-65 lg:bottom-0 z-40 py-2 px-2 bg-bluemain w-1/2 h-full lg:w-full lg:h-auto flex items-center justify-center">
+									<p className="text-center font-bold  ">
+										"Completar"
+									</p>
+								</div>
+							</div>
 						</div>
+						{/* <div className="w-full md:w-1/2 lg:w-1/4 h-65 lg:h-85 pb-5 pl-5">
+							<div className="gallery-item">
+								<Image src="" width="234" />
+							</div>
+						</div> */}
 					</div>
 				</section>
 				<section
@@ -93,12 +197,12 @@ export default function Home() {
 			</main>
 			<div id="contact" className="bg-f-shadow">
 				<div className="w-full min-h-100 px-2 py-5 lg:max-w-5xl lg:mx-auto lg:py-4 lg:px-0">
-					<h4 className="text-2xl font-bold pl-2 md:pl-0 text-center mb-5">
+					<h4 className="text-2xl font-bold pl-2 md:pl-0 text-center mb-5 text-white">
 						Estamos aquí para vos
 					</h4>
 					<div className="w-full flex flex-col md:flex-row">
 						<div className="w-full md:w-1/2 h-full px-1 md:px-2">
-							<div className="flex flex-col md:flex-row text-sm gap-5">
+							<div className="flex flex-col md:flex-row text-sm gap-5 text-white">
 								<p>Corrientes 780</p>
 								<p>
 									Lun a Vie de 10.30 a 12:00 hs y de 18.30 a

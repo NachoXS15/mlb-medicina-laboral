@@ -30,7 +30,7 @@ body {
 
 #services .gallery-item {
 	box-shadow: -15px 15px 0 var(--f-shadow), inset 0 0 0 1px var(--f-shadow);
-	@apply rounded-4xl bg-white h-full w-full;
+	@apply rounded-4xl bg-white h-full w-full overflow-hidden relative text-white;
 }
 
 #clients .carrousel-item {
@@ -45,6 +45,6 @@ body {
 	#services .gallery-item {
 		box-shadow: -15px 15px 0 var(--bluemain),
 			inset 0 0 0 1px var(--bluemain);
-		@apply rounded-4xl bg-white h-full w-full;
+		@apply rounded-4xl bg-white h-full w-full dark:bg-s-shadow;
 	}
 }
