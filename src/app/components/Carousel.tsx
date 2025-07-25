@@ -78,20 +78,3 @@ export default function Carousel() {
 		</div>
 	);
 }
-
-/*
-<div className="carrousel-item"></div>
-			<div className="carrousel-item"></div>
-			<div className="carrousel-item"></div>
-			<div className="carrousel-item"></div>
-			<div className="carrousel-item"></div>
-			<div className="carrousel-item"></div>
-			<div className="carrousel-item"></div>
-			<div className="carrousel-item"></div>
-			<div className="carrousel-item"></div>
-			<div className="carrousel-item"></div>
-			<div className="carrousel-item"></div>
-			<div className="carrousel-item"></div>
-			<div className="carrousel-item"></div>
-
-*/

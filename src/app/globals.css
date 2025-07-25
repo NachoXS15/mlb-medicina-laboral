@@ -28,7 +28,6 @@ body {
 	font-family: Arial, Helvetica, sans-serif;
 }
 #banner {
-	background-image: url("../../public/assets/banner.png");
 	background-position: center;
 }
 #services .gallery-item {

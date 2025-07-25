@@ -5,7 +5,10 @@ import Image from "next/image";
 export default function Home() {
 	return (
 		<>
-			<section id="banner" className="bg-f-shadow">
+			<section
+				id="banner"
+				className="bg-f-shadow bg-[url(../../public/assets/banner-mobile.png)] md:bg-[url(../../public/assets/banner.png)]"
+			>
 				<div className="w-full min-h-100 flex flex-col items-start justify-center text-gray-950 p-10 lg:max-w-5xl lg:mx-auto lg:py-2 lg:px-0">
 					<div id="banner-description ">
 						<h2 className="text-base text-white font-bold">
@@ -177,11 +180,6 @@ export default function Home() {
 								</div>
 							</div>
 						</div>
-						{/* <div className="w-full md:w-1/2 lg:w-1/4 h-65 lg:h-85 pb-5 pl-5">
-							<div className="gallery-item">
-								<Image src="" width="234" />
-							</div>
-						</div> */}
 					</div>
 				</section>
 				<section
