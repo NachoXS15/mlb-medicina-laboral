@@ -27,7 +27,10 @@ body {
 	color: var(--s-shadow);
 	font-family: Arial, Helvetica, sans-serif;
 }
-
+#banner {
+	background-image: url("../../public/assets/banner.png");
+	background-position: center;
+}
 #services .gallery-item {
 	box-shadow: -15px 15px 0 var(--f-shadow), inset 0 0 0 2px var(--f-shadow);
 	@apply rounded-4xl bg-white h-full w-full overflow-hidden relative text-white;

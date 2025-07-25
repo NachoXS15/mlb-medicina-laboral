@@ -8,7 +8,9 @@ export default function Home() {
 			<section id="banner" className="bg-f-shadow">
 				<div className="w-full min-h-100 flex flex-col items-start justify-center text-gray-950 p-10 lg:max-w-5xl lg:mx-auto lg:py-2 lg:px-0">
 					<div id="banner-description ">
-						<h2 className="text-base text-white">Dra. Basso</h2>
+						<h2 className="text-base text-white font-bold">
+							Dra. Basso
+						</h2>
 						<h1 className="font-bold text-2xl md:text-4xl mb-3 text-white">
 							Medicina laboral <br /> para empresas <br /> en La
 							Rioja
@@ -53,7 +55,7 @@ export default function Home() {
 					<h4 className="text-2xl font-bold pl-2 md:pl-0">
 						Ofrecemos una amplia variedad de servicios
 					</h4>
-					<div className="flex w-full flex-wrap">
+					<div className="flex w-full flex-wrap pt-2">
 						<div className="w-full md:w-1/2 lg:w-1/4 h-65 lg:h-85 pb-5 pl-5">
 							<div className="gallery-item">
 								<Image
