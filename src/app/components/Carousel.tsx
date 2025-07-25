@@ -1,6 +1,22 @@
 "use client";
 import { useEffect, useState } from "react";
-
+import Image from "next/image";
+/*
+const images = [
+	"../assets/clients/farmanor.webp",
+	"../assets/clients/farmanor.webp",
+	"../assets/clients/farmanor.webp",
+	"../assets/clients/farmanor.webp",
+	"../assets/clients/farmanor.webp",
+	"../assets/clients/farmanor.webp",
+	"../assets/clients/farmanor.webp",
+	"../assets/clients/farmanor.webp",
+	"../assets/clients/farmanor.webp",
+	"../assets/clients/farmanor.webp",
+	"../assets/clients/farmanor.webp",
+	"../assets/clients/farmanor.webp",
+];
+*/
 export default function Carousel() {
 	const [offset, setOffset] = useState(0);
 	const [isHovered, setIsHovered] = useState(false);
@@ -48,8 +64,13 @@ export default function Carousel() {
 						className="flex-shrink-0"
 						style={{ width: ITEM_WIDTH }}
 					>
-						<div className="carrousel-item bg-white text-center p-2 rounded-md shadow">
-							Item {i + 1}
+						<div className="carrousel-item bg-white text-center p-2 rounded-md shadow aspect-square overflow-hidden">
+							<Image
+								src="/assets/clients/farmanor.webp"
+								alt="Logo cliente"
+								width={200}
+								height={200}
+							/>
 						</div>
 					</div>
 				))}

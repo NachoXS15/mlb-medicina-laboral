@@ -22,7 +22,7 @@ export default function Home() {
 					</div>
 				</div>
 			</section>
-			<main className="w-full min-h-100 dark:bg-s-shadow dark:text-white flex flex-col gap-15 items-start justify-center text-gray-950 pb-10 lg:max-w-5xl lg:mx-auto lg:py-2">
+			<main className="w-full min-h-100 dark:text-white flex flex-col gap-15 items-start justify-center text-gray-950 pb-10 lg:max-w-5xl lg:mx-auto lg:py-2">
 				<section
 					id="aboutUs"
 					className="w-full py-5 flex flex-col md:flex-row items-center"
@@ -57,7 +57,7 @@ export default function Home() {
 						<div className="w-full md:w-1/2 lg:w-1/4 h-65 lg:h-85 pb-5 pl-5">
 							<div className="gallery-item">
 								<Image
-									src="/services/service-01.png"
+									src="/assets/services/service-01.png"
 									width="234"
 									height="318"
 									alt="imagen"
@@ -73,7 +73,7 @@ export default function Home() {
 						<div className="w-full md:w-1/2 lg:w-1/4 h-65 lg:h-85 pb-5 pl-5">
 							<div className="gallery-item">
 								<Image
-									src="/services/service-02.png"
+									src="/assets/services/service-02.png"
 									width="234"
 									height="318"
 									alt="imagen"
@@ -88,7 +88,7 @@ export default function Home() {
 						<div className="w-full md:w-1/2 lg:w-1/4 h-65 lg:h-85 pb-5 pl-5">
 							<div className="gallery-item">
 								<Image
-									src="/services/service-03.png"
+									src="/assets/services/service-03.png"
 									width="234"
 									height="318"
 									alt="imagen"
@@ -103,7 +103,7 @@ export default function Home() {
 						<div className="w-full md:w-1/2 lg:w-1/4 h-65 lg:h-85 pb-5 pl-5">
 							<div className="gallery-item">
 								<Image
-									src="/services/service-04.png"
+									src="/assets/services/service-04.png"
 									width="234"
 									height="318"
 									alt="imagen"
@@ -118,14 +118,14 @@ export default function Home() {
 						<div className="w-full md:w-1/2 lg:w-1/4 h-65 lg:h-85 pb-5 pl-5">
 							<div className="gallery-item">
 								<Image
-									src="/services/service.png"
+									src="/assets/services/service.png"
 									width="234"
 									height="318"
 									alt="imagen"
 								/>
 								<div className="absolute right-0 top-0 lg:top-65 lg:bottom-0 z-40 py-2 px-2 bg-bluemain w-1/2 h-full lg:w-full lg:h-auto flex items-center justify-center">
 									<p className="text-center font-bold">
-										"Completar"
+										Completar
 									</p>
 								</div>
 							</div>
@@ -133,14 +133,14 @@ export default function Home() {
 						<div className="w-full md:w-1/2 lg:w-1/4 h-65 lg:h-85 pb-5 pl-5">
 							<div className="gallery-item">
 								<Image
-									src="/services/service.png"
+									src="/assets/services/service.png"
 									width="234"
 									height="318"
 									alt="imagen"
 								/>
 								<div className="absolute right-0 top-0 lg:top-65 lg:bottom-0 z-40 py-2 px-2 bg-bluemain w-1/2 h-full lg:w-full lg:h-auto flex items-center justify-center">
 									<p className="text-center font-bold  ">
-										"Completar"
+										Completar
 									</p>
 								</div>
 							</div>
@@ -148,14 +148,14 @@ export default function Home() {
 						<div className="w-full md:w-1/2 lg:w-1/4 h-65 lg:h-85 pb-5 pl-5">
 							<div className="gallery-item">
 								<Image
-									src="/services/service.png"
+									src="/assets/services/service.png"
 									width="234"
 									height="318"
 									alt="imagen"
 								/>
 								<div className="absolute right-0 top-0 lg:top-65 lg:bottom-0 z-40 py-2 px-2 bg-bluemain w-1/2 h-full lg:w-full lg:h-auto flex items-center justify-center">
 									<p className="text-center font-bold  ">
-										"Completar"
+										Completar
 									</p>
 								</div>
 							</div>
@@ -163,14 +163,14 @@ export default function Home() {
 						<div className="w-full md:w-1/2 lg:w-1/4 h-65 lg:h-85 pb-5 pl-5">
 							<div className="gallery-item">
 								<Image
-									src="/services/service.png"
+									src="/assets/services/service.png"
 									width="234"
 									height="318"
 									alt="imagen"
 								/>
 								<div className="absolute right-0 top-0 lg:top-65 lg:bottom-0 z-40 py-2 px-2 bg-bluemain w-1/2 h-full lg:w-full lg:h-auto flex items-center justify-center">
-									<p className="text-center font-bold  ">
-										"Completar"
+									<p className="text-center font-bold">
+										Completar
 									</p>
 								</div>
 							</div>
