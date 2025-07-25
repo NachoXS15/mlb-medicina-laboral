@@ -1,0 +1,10 @@
+const docs = [
+    "JULIO2025_YPF",
+    "JULIO2025_ARCOR",
+    "JULIO2025_MERCADO LIBRE",
+    "JULIO2025_GRUPOCLARIN",
+    "JULIO2025_TECHINT",
+    "JULIO2025_BAGÓ",
+]
+
+export default docs
