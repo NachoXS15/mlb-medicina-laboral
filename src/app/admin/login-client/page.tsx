@@ -1,6 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import logo from '../../assets/logo.webp'
+import Link from 'next/link'
 export default function page() {
   return (
     <main className='bg-white w-full min-h-screen flex items-center justify-center font-main'>
@@ -20,7 +21,7 @@ export default function page() {
                         <label htmlFor="">Contraseña</label>
                         <input type="password" className='h-10 border border-bluemain rounded-2xl' />
                     </div>
-                    <button type='submit' className='mt-5 bg-bronze text-white w-4/5 h-10 rounded-2xl transition border hover:border-bronze hover:bg-white hover:text-bronze'>Iniciar sesión</button>
+                    <Link href="/admin/dashboardU" className='mt-5 bg-bluemain flex justify-center items-center text-white w-4/5 h-10 rounded-2xl transition border hover:border-bluemain hover:bg-white hover:text-bronze'>Iniciar sesión</Link>
                 </form>
                 <div>
                     <p className='text-bluemain text-md font-bold hover:underline'>¿Olvidaste tu contraseña?</p>
