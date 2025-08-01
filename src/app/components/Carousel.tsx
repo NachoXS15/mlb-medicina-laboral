@@ -4,7 +4,7 @@ import Image from "next/image";
 /*
 const images = [
 	"../assets/clients/farmanor.webp",
-	"../assets/clients/farmanor.webp",
+	"../assets/clients/global-medica.svg",
 	"../assets/clients/farmanor.webp",
 	"../assets/clients/farmanor.webp",
 	"../assets/clients/farmanor.webp",

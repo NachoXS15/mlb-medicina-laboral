@@ -3,7 +3,7 @@ import Link from "next/link";
 import Logo from "./assets/logo.webp";
 import Image from "next/image";
 import Footer from "./components/Footer";
-
+import { Clock7, MapPin, User } from "lucide-react";
 export default function Home() {
 	return (
 		<>
@@ -44,9 +44,9 @@ export default function Home() {
 					</nav>
 					<a
 						href="#"
-						className="flex items-center justify-center aspect-square bg-s-shadow w-8 rounded-full text-center text-white"
+						className="flex items-center justify-center aspect-square bg-s-shadow w-8 rounded-full text-center text-white hover:bg-bronze transition-all"
 					>
-						O
+						<User />
 					</a>
 				</div>
 			</header>
@@ -100,7 +100,7 @@ export default function Home() {
 					<h3 className="text-bronze pl-2 md:pl-0">
 						Nuestros servicios
 					</h3>
-					<h4 className="text-2xl font-bold pl-2 md:pl-0">
+					<h4 className="text-2xl text-f-shadow font-bold pl-2 md:pl-0">
 						Ofrecemos una amplia variedad de servicios
 					</h4>
 					<div className="flex w-full flex-wrap pt-2">
@@ -168,14 +168,15 @@ export default function Home() {
 						<div className="w-full md:w-1/2 lg:w-1/4 h-65 lg:h-85 pb-5 pl-5">
 							<div className="gallery-item">
 								<Image
-									src="/assets/services/service.png"
+									src="/assets/services/service-06.png"
 									width="234"
 									height="318"
 									alt="imagen"
 								/>
 								<div className="absolute right-0 top-0 lg:top-65 lg:bottom-0 z-40 py-2 px-2 bg-bluemain w-1/2 h-full lg:w-full lg:h-auto flex items-center justify-center">
 									<p className="text-center font-bold">
-										Completar
+										Determinación de incapacidad
+										{/* de daño corporal */}
 									</p>
 								</div>
 							</div>
@@ -190,7 +191,7 @@ export default function Home() {
 								/>
 								<div className="absolute right-0 top-0 lg:top-65 lg:bottom-0 z-40 py-2 px-2 bg-bluemain w-1/2 h-full lg:w-full lg:h-auto flex items-center justify-center">
 									<p className="text-center font-bold  ">
-										Completar
+										Unidad movil
 									</p>
 								</div>
 							</div>
@@ -198,14 +199,14 @@ export default function Home() {
 						<div className="w-full md:w-1/2 lg:w-1/4 h-65 lg:h-85 pb-5 pl-5">
 							<div className="gallery-item">
 								<Image
-									src="/assets/services/service.png"
+									src="/assets/services/service-05.png"
 									width="234"
 									height="318"
 									alt="imagen"
 								/>
 								<div className="absolute right-0 top-0 lg:top-65 lg:bottom-0 z-40 py-2 px-2 bg-bluemain w-1/2 h-full lg:w-full lg:h-auto flex items-center justify-center">
 									<p className="text-center font-bold  ">
-										Completar
+										Control de ausentismo
 									</p>
 								</div>
 							</div>
@@ -213,14 +214,14 @@ export default function Home() {
 						<div className="w-full md:w-1/2 lg:w-1/4 h-65 lg:h-85 pb-5 pl-5">
 							<div className="gallery-item">
 								<Image
-									src="/assets/services/service.png"
+									src="/assets/services/service-07.png"
 									width="234"
 									height="318"
 									alt="imagen"
 								/>
 								<div className="absolute right-0 top-0 lg:top-65 lg:bottom-0 z-40 py-2 px-2 bg-bluemain w-1/2 h-full lg:w-full lg:h-auto flex items-center justify-center">
 									<p className="text-center font-bold">
-										Completar
+										Capacitaciones médicas a empresas
 									</p>
 								</div>
 							</div>
@@ -248,8 +249,12 @@ export default function Home() {
 					<div className="w-full flex flex-col md:flex-row">
 						<div className="w-full md:w-1/2 h-full px-1 md:px-2">
 							<div className="flex flex-col md:flex-row text-sm gap-5 text-white">
-								<p>Corrientes 780</p>
-								<p>
+								<p className="flex items-center gap-2">
+									<MapPin size={14} />
+									Corrientes 780
+								</p>
+								<p className="flex items-center gap-2">
+									<Clock7 size={14} />
 									Lun a Vie de 10.30 a 12:00 hs y de 18.30 a
 									19.30 hs.
 								</p>
