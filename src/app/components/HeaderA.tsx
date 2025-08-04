@@ -9,7 +9,7 @@ export default function HeaderA() {
                 <Image src={logo} width={150} alt="" />
                 <p className="text-white text-xl">Sistema de Gestión de Clientes</p>
                 <nav>
-                    <Link href="/logout" className="bg-bronze text-slate-100 px-5 py-2 rounded-full hover:underline transition">Cerrar sesión</Link>
+                    <Link href="/admin/logout" className="bg-bronze text-slate-100 px-5 py-2 rounded-full hover:underline transition">Cerrar sesión</Link>
                 </nav>
             </div>
         </header>
