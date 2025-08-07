@@ -28,7 +28,7 @@ export default async function page() {
                             <input type="text" className="h-9 w-44 px-2 border rounded border-slate-300" placeholder="Cliente" />
                             <button type="submit" className=" bg-bronze text-slate-100 px-5 py-1 rounded">Buscar</button>
                         </form>
-                        <Link href="/admin/dashboardA/addClient" className="text-xl underline">Agregar Cliente</Link>
+                        <Link href="/admin/dashboardA/addClient" className="text-xl underline">Agregar Cliente o Usuario</Link>
                     </div>
                     <div className="h-[700px] overflow-y-scroll">
                         <TableA profiles={profiles} />
