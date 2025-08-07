@@ -6,6 +6,7 @@ export interface ProfileType {
     status: string
     img?: string
     type: string
+    created_at?: string
 }
 
 export interface UserSignUp{

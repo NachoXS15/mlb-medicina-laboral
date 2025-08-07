@@ -26,6 +26,7 @@ export default function page() {
             status,
             role
         });
+        
         if (!name || !mail || !type || !status || !role || !password) {
             console.error("Todos los campos son obligatorios");
             return;

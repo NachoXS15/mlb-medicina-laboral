@@ -8,8 +8,23 @@ export async function fetchProfiles(){
         if (error) {
             console.log(error);
         }
-        console.log(profiles);
         return profiles as ProfileType[];
+        
+    } catch (error) {
+        console.log(error);
+        return null;
+    }
+}
+
+export async function fetchProfilebyId(id: string){
+    try {
+        const supabase = await createClient();
+        const {data: profile, error} = await supabase.from('profiles').select('*').eq("id", id).single()
+        if (error) {
+            console.log(error);
+        }
+        console.log(profile);
+        return profile as ProfileType;
         
     } catch (error) {
         console.log(error);
