@@ -18,36 +18,36 @@ export default function Home() {
 					</Link>
 					<nav className="flex justify-evenly items-center font-bold">
 						<a
-							href=""
+							href="#aboutUs"
 							className="text-xs lg:text-base py-2 px-2 md:px-5 border-b-2 border-transparent hover:border-f-shadow transition-all hover:py-1"
 						>
 							Nosotros
 						</a>
 						<a
-							href=""
+							href="#services"
 							className="text-xs lg:text-base py-2 px-2 md:px-5 border-b-2 border-transparent hover:border-f-shadow transition-all hover:py-1"
 						>
 							Servicios
 						</a>
 						<a
-							href=""
+							href="#clients"
 							className="text-xs lg:text-base py-2 px-2 md:px-5 border-b-2 border-transparent hover:border-f-shadow transition-all hover:py-1"
 						>
 							Clientes
 						</a>
 						<a
-							href=""
+							href="#contact"
 							className="text-xs lg:text-base py-2 px-2 md:px-5 border-b-2 border-transparent hover:border-f-shadow transition-all hover:py-1"
 						>
 							Contacto
 						</a>
 					</nav>
-					<a
-						href="#"
+					<Link
+						href="admin/login"
 						className="flex items-center justify-center aspect-square bg-s-shadow w-8 rounded-full text-center text-white hover:bg-bronze transition-all"
 					>
 						<User />
-					</a>
+					</Link>
 				</div>
 			</header>
 			<section
