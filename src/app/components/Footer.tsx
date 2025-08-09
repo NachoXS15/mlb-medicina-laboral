@@ -1,6 +1,7 @@
 import Image from "next/image";
 import logo_b from "../assets/logo_blanco.webp";
 import Link from "next/link";
+import { Mail, Phone } from "lucide-react";
 export default async function Footer() {
 	return (
 		<footer className="bg-s-shadow py-5 min-h-30">
@@ -26,13 +27,15 @@ export default async function Footer() {
 						<h4 className="text-sm uppercase text-bronze font-bold">
 							Información
 						</h4>
-						<ul className="list-none text-xs">
-							<li>
+						<ul className="list-none text-xs flex flex-col gap-2">
+							<li className="flex gap-2 items-center">
+								<Mail color="white" size={20} />
 								<a href="mailto:laurabasso28@hotmail.com">
 									laurabasso28@hotmail.com
 								</a>
 							</li>
-							<li>
+							<li className="flex gap-2 items-center">
+								<Phone color="white" size={20} />
 								<a href="tel:+5493804627098">+5493804627098</a>
 							</li>
 						</ul>

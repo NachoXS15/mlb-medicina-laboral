@@ -1,22 +1,30 @@
 "use client";
 import { useEffect, useState } from "react";
 import Image from "next/image";
-/*
-const images = [
-	"../assets/clients/farmanor.webp",
-	"../assets/clients/farmanor.webp",
-	"../assets/clients/farmanor.webp",
-	"../assets/clients/farmanor.webp",
-	"../assets/clients/farmanor.webp",
-	"../assets/clients/farmanor.webp",
-	"../assets/clients/farmanor.webp",
-	"../assets/clients/farmanor.webp",
-	"../assets/clients/farmanor.webp",
-	"../assets/clients/farmanor.webp",
-	"../assets/clients/farmanor.webp",
-	"../assets/clients/farmanor.webp",
+
+const empresas = [
+	{
+		img: "/assets/clients/farmanor.webp",
+		empresa_name: "Farmanor",
+	},
+	{
+		img: "/assets/clients/global-medica.svg",
+		empresa_name: "Global Medica",
+		url: "https://www.globalmedica.com.ar/",
+	},
+	{ img: "", empresa_name: "FABRICA ENOD SA" },
+	{ img: "", empresa_name: "RIOJA VIAL SA" },
+	{ img: "", empresa_name: "FELIPE VENECIA SA" },
+	{ img: "", empresa_name: "HOTEL PLAZA" },
+	{ img: "", empresa_name: "CERDOS DE LOS LLANOS SA" },
+	{ img: "", empresa_name: "OMINT ART" },
+	{ img: "", empresa_name: "SMG ART" },
+	{ img: "", empresa_name: "Paolini SA" },
+	{ img: "", empresa_name: "Paolini-britos SA" },
+	{ img: "", empresa_name: "Edelar" },
+	{ img: "", empresa_name: "Benito Roggio - vialmani ute" },
 ];
-*/
+
 export default function Carousel() {
 	const [offset, setOffset] = useState(0);
 	const [isHovered, setIsHovered] = useState(false);
@@ -58,7 +66,7 @@ export default function Carousel() {
 					width: `${items.length * ITEM_WIDTH}px`,
 				}}
 			>
-				{items.map((i, index) => (
+				{empresas.map((empresa, index) => (
 					<div
 						key={index}
 						className="flex-shrink-0"
@@ -66,8 +74,8 @@ export default function Carousel() {
 					>
 						<div className="carrousel-item bg-white text-center p-2 rounded-md shadow aspect-square overflow-hidden">
 							<Image
-								src="/assets/clients/farmanor.webp"
-								alt="Logo cliente"
+								src={empresa.img}
+								alt={`Logo ${empresa.empresa_name}`}
 								width={200}
 								height={200}
 							/>
