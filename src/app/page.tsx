@@ -3,6 +3,7 @@ import Link from "next/link";
 import Logo from "./assets/logo.webp";
 import Image from "next/image";
 import Footer from "./components/Footer";
+import Formindex from "./components/Formindex";
 import { Clock7, MapPin, User } from "lucide-react";
 export default function Home() {
 	return (
@@ -271,61 +272,7 @@ export default function Home() {
 							</div>
 						</div>
 						<div className="w-full md:w-1/2 h-full">
-							<form
-								action="#"
-								className="w-full flex flex-col gap-2 px-2"
-							>
-								<div className="flex w-full">
-									<input
-										type="text"
-										name="formNombre"
-										id="formNombre"
-										className="bg-white resize-none w-full rounded-xl py-2 px-2 text-s-shadow focus:outline-bluemain"
-										placeholder="Nombre completo..."
-									/>
-								</div>
-								<div className="flex w-full gap-2">
-									<input
-										type="text"
-										name="formEmpresa"
-										id="formEmpresa"
-										className="bg-white resize-none w-1/2 rounded-xl py-2 px-2 text-s-shadow focus:outline-bluemain"
-										placeholder="Empresa..."
-									/>
-									<input
-										type="text"
-										name="formEmpresa"
-										id="formEmpresa"
-										className="bg-white resize-none w-1/2 rounded-xl py-2 px-2 text-s-shadow focus:outline-bluemain"
-										placeholder="Teléfono"
-									/>
-								</div>
-								<div className="flex w-full">
-									<input
-										type="text"
-										name="formCorreo"
-										id="formCorreo"
-										className="bg-white resize-none w-full rounded-xl py-2 px-2 text-s-shadow focus:outline-bluemain"
-										placeholder="Dejanos un correo de contacto.."
-									/>
-								</div>
-								<div className="flex w-full">
-									<textarea
-										className="bg-white resize-none w-full min-h-35 rounded-xl text-s-shadow p-2 focus:outline-bluemain"
-										name="formMessage"
-										id="formMessage"
-										placeholder="Consulta..."
-									></textarea>
-								</div>
-								<div className="flex w-full">
-									<button
-										type="submit"
-										className="bg-bronze w-full py-2 rounded-xl"
-									>
-										Enviar consulta
-									</button>
-								</div>
-							</form>
+							<Formindex />
 						</div>
 					</div>
 				</div>
