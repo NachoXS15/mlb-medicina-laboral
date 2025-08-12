@@ -25,7 +25,7 @@ export default function TableA({profiles}: {profiles:ProfileType[]}) {
                             <td className="p-4 border text-sm border-slate-200">{profile.mail}</td>
                             <td className="p-4 border text-sm border-slate-200">{profile.status}</td>
                             <td className="p-4 border text-sm border-slate-200">{profile.role === "admin" ? "Administrador" : "Cliente"}</td>
-                            <td className="p-4 border text-sm border-slate-200"><Link href="/admin/dashboardA/viewDocuments" className="hover:underline text-bluemain">Ver Documentos</Link></td>
+                            <td className="p-4 border text-sm border-slate-200"><Link href={`/admin/dashboardA/viewDocuments/${profile.id}`} className="hover:underline text-bluemain">Ver Documentos</Link></td>
                             <td className="p-4 text-center hover:scale-105 transition hover:text-orange-500"><Link href={`/admin/dashboardA/${profile.id}`}><Pencil></Pencil></Link></td>
                             <td className="p-4 text-center hover:scale-105 transition hover:text-red-500"><Link href=""><Trash2></Trash2></Link></td>
                         </tr>
