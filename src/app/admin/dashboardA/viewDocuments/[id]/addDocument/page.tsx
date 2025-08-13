@@ -7,16 +7,17 @@ export default function page() {
             <div className="xl:w-5/12">
                 <div className="flex items-center px-10 gap-3">
                     <Link href="/admin/dashboardA" className="cursor-pointer hover:scale-110 transition"><ArrowLeft /></Link>
-                    <h2 className="text-2xl font-bold text-center self-center">Carga de Documentos</h2>
+                    <h2 className="text-2xl font-bold text-center self-center">Carga de Documento</h2>
                 </div>
                 <form className='w-full flex items-center shadow-xl p-10 flex-col gap-5'>
                     <div className="flex w-full gap-5">
                         <div className='w-full flex flex-col'>
-                            <label htmlFor="">Tipo de Cliente</label>
-                            <select name="type" className='h-10 px-5 border border-bluemain rounded-2xl'>
-                                <option value="Pyme">Pyme</option>
-                                <option value="Particular">Particular</option>
-                                <option value="Empresa Grande">Empresa Grande</option>
+                            <label htmlFor="">Tipo de Documento</label>
+                            <select name="type" className='active:border-blue-500 h-10 px-5 border border-bluemain rounded-2xl'>
+                                <option value="Examenes Preocupaciones">Examenes Preocupaciones</option>
+                                <option value="Examenes Periodicos">Examenes Periodicos</option>
+                                <option value="Pericias médicas">Pericias médicas</option>
+                                <option value="Otros">Otros</option>
                             </select>
                         </div>
                     </div>

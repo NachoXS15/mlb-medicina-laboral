@@ -20,6 +20,7 @@ export default async function page() {
     return (
         <main className='w-full min-h-screen font-main'>
             <section className="w-full min-h-screen bg-cover bg-center " style={{ backgroundImage: `url('/assets/ypf.jpg')` }}>
+            {/* agregar foto de fondo y color por link  */}
                 <div className="w-full min-h-screen bg-s-shadow/50 flex items-center justify-center flex-col gap-5">
                     <div>
                         <Image src={logo} width={150} className="absolute left-40 top-40" alt="" />
