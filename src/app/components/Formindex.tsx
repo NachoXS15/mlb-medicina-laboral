@@ -1,43 +1,50 @@
 "use client";
-import emailjs from '@emailjs/browser';
-import { useRef } from "react"; 
+import emailjs from "@emailjs/browser";
+import { useRef } from "react";
 
 export default function Form() {
-	const EMAILJS_SERVICE_ID = process.env.EMAILJS_SERVICE_ID as string
-	const EMAILJS_TEMPLATE_ID = process.env.EMAILJS_TEMPLATE_ID as string
-	const EMAILJS_PUBLIC_KEY = process.env.EMAILJS_PUBLIC_KEY as string
+	const EMAILJS_SERVICE_ID = process.env
+		.NEXT_PUBLIC_EMAILJS_SERVICE_ID as string;
+	const EMAILJS_TEMPLATE_ID = process.env
+		.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID as string;
+	const EMAILJS_PUBLIC_KEY = process.env
+		.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY as string;
 
-    const form = useRef<HTMLFormElement>(null);
+	const form = useRef<HTMLFormElement>(null);
 	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
-		
-		if (form.current) {
-			emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, form.current, {
-				publicKey: EMAILJS_PUBLIC_KEY
-			}).then(
-				() => {
-					console.log("Mail enviado");
-				}				
-			).catch(
-				() => {
-					console.log("Error al enviar");
-				}
-			)
-		}
+		// descomentar cuando estemos listos
 
+		if (form.current) {
+			emailjs
+				.sendForm(
+					EMAILJS_SERVICE_ID,
+					EMAILJS_TEMPLATE_ID,
+					form.current,
+					{
+						publicKey: EMAILJS_PUBLIC_KEY,
+					}
+				)
+				.then(() => {
+					console.log("Mail enviado");
+				})
+				.catch((err) => {
+					console.log("Error al enviar", err);
+				});
+		}
 	};
 
 	return (
 		<form
 			onSubmit={handleSubmit}
 			className="w-full flex flex-col gap-2 px-2"
-			
+			ref={form}
 		>
 			<div className="flex w-full">
 				<input
 					type="text"
-					name="nombre"
-					id="formNombre"
+					name="name"
+					id="formName"
 					className="bg-white resize-none w-full rounded-xl py-2 px-2 text-s-shadow focus:outline-bluemain"
 					placeholder="Nombre completo..."
 				/>
