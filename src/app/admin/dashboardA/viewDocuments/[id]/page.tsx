@@ -1,4 +1,3 @@
-import docs from "@/app/config/SampleDocs"
 import { fetchProfilebyId } from "@/app/lib/data-server";
 import { Download, Trash } from "lucide-react";
 import { InferGetServerSidePropsType } from "next";
