@@ -31,8 +31,11 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
+			<head>
+				<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+			</head>
 			<body
-				className={`${geistSans.variable} ${geistMono.variable} ${merriweatherSans.variable} antialiased`}
+				className={`${geistSans.variable} ${geistMono.variable} ${merriweatherSans.variable} scroll-smooth antialiased`}
 			>
 				{children}
 			</body>

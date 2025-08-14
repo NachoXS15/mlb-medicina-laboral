@@ -1,36 +1,37 @@
 "use client";
-
-import { useState } from "react";
+import emailjs from '@emailjs/browser';
+import { useRef } from "react"; 
 
 export default function Form() {
-	const [formData, setFormData] = useState({
-		nombre: "",
-		empresa: "",
-		telefono: "",
-		correo: "",
-		mensaje: "",
-	});
+	const EMAILJS_SERVICE_ID = process.env.EMAILJS_SERVICE_ID as string
+	const EMAILJS_TEMPLATE_ID = process.env.EMAILJS_TEMPLATE_ID as string
+	const EMAILJS_PUBLIC_KEY = process.env.EMAILJS_PUBLIC_KEY as string
 
-	const handleChange = (
-		e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-	) => {
-		const { name, value } = e.target;
-		setFormData((prev) => ({ ...prev, [name]: value }));
-	};
-
-	const handleSubmit = async (e: React.FormEvent) => {
+    const form = useRef<HTMLFormElement>(null);
+	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
-		await fetch("/api/contact", {
-			method: "POST",
-			headers: { "Content-Type": "application/json" },
-			body: JSON.stringify(formData),
-		});
+		
+		if (form.current) {
+			emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, form.current, {
+				publicKey: EMAILJS_PUBLIC_KEY
+			}).then(
+				() => {
+					console.log("Mail enviado");
+				}				
+			).catch(
+				() => {
+					console.log("Error al enviar");
+				}
+			)
+		}
+
 	};
 
 	return (
 		<form
 			onSubmit={handleSubmit}
 			className="w-full flex flex-col gap-2 px-2"
+			
 		>
 			<div className="flex w-full">
 				<input
@@ -39,7 +40,6 @@ export default function Form() {
 					id="formNombre"
 					className="bg-white resize-none w-full rounded-xl py-2 px-2 text-s-shadow focus:outline-bluemain"
 					placeholder="Nombre completo..."
-					onChange={handleChange}
 				/>
 			</div>
 			<div className="flex w-full gap-2">
@@ -49,7 +49,6 @@ export default function Form() {
 					id="formEmpresa"
 					className="bg-white resize-none w-1/2 rounded-xl py-2 px-2 text-s-shadow focus:outline-bluemain"
 					placeholder="Empresa..."
-					onChange={handleChange}
 				/>
 				<input
 					type="text"
@@ -57,7 +56,6 @@ export default function Form() {
 					id="formTelefono"
 					className="bg-white resize-none w-1/2 rounded-xl py-2 px-2 text-s-shadow focus:outline-bluemain"
 					placeholder="Teléfono"
-					onChange={handleChange}
 				/>
 			</div>
 			<div className="flex w-full">
@@ -67,22 +65,20 @@ export default function Form() {
 					id="formCorreo"
 					className="bg-white resize-none w-full rounded-xl py-2 px-2 text-s-shadow focus:outline-bluemain"
 					placeholder="Dejanos un correo de contacto..."
-					onChange={handleChange}
 				/>
 			</div>
 			<div className="flex w-full">
 				<textarea
 					className="bg-white resize-none w-full min-h-35 rounded-xl text-s-shadow p-2 focus:outline-bluemain"
-					name="mensaje"
+					name="message"
 					id="formMessage"
 					placeholder="Consulta..."
-					onChange={handleChange}
 				></textarea>
 			</div>
 			<div className="flex w-full">
 				<button
 					type="submit"
-					className="bg-bronze w-full py-2 rounded-xl"
+					className="bg-bronze w-full py-2 rounded-xl hover:text-white cursor-pointer transition"
 				>
 					Enviar consulta
 				</button>
