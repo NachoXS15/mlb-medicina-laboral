@@ -36,7 +36,7 @@ export default async function page() {
                     <div className='flex items-center justify-between bg-slate-100 border-b border-b-slate-400 p-5'>
                         <div>
                             <h2 className='font-main text-xl font-bold'>Julio_2025</h2>
-                            <span>Subido: </span>
+                            <span>Subido: {profile.created_at.slice(0, 19).replace("T", " | ")}</span>
                         </div>
                         <Link href="" className='hove:scale-105 transition'><Download width={30} color='#000' /></Link>
                     </div>
