@@ -37,14 +37,7 @@ export default function Page() {
             return;
         }
         const filePath = `${params.id}/${fileName}`
-
         setLoading(true)
-
-        // console.log("path: ", filePath.replace(" ", "_"));
-        // console.log("name: ", fileName.replace(" ", "_"));
-        // console.log("tipo: ", fileType);
-        // console.log("usuario: ", params.id);
-        
 
         try {
             const {error: errorUpload} = await supabaseClient.storage.from('docsbucket').upload(filePath, file)
