@@ -24,10 +24,10 @@ export default async function page() {
 			<section className="text-black w-[650px] h-[550px] shadow-xl relative">
 				<Link
 					href="/"
-					className="absolute top-5 left-5 cursor-pointer p-2 rounded-full hover:bg-bluemain hover:text-white"
+					className="absolute text-bluemain top-5 left-5 cursor-pointer p-2 rounded-full hover:bg-bluemain hover:text-white"
 					title="Volver al inicio"
 				>
-					<ArrowLeftToLine />
+					<ArrowLeftToLine  />
 				</Link>
 				<div className="m-auto">
 					<Image src={logo} width={150} className="m-auto" alt="" />

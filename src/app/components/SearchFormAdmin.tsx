@@ -1,8 +1,8 @@
 'use client'
 import Link from "next/link"
 import TableA from "../utils/tables/TableA"
-import { ProfileType } from "../config/definitions"
 import { useMemo, useState } from "react";
+import { ProfileType } from "../config/definitions"
 
 type Props = {
     profiles: ProfileType[]

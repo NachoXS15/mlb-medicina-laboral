@@ -2,132 +2,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-
-const empresas = [
-	{
-		img: "/assets/clients/farmanor.png",
-		empresa_name: "Farmanor",
-	},
-	{
-		img: "/assets/clients/global-medica.svg",
-		empresa_name: "Global Medica",
-		url: "https://www.globalmedica.com.ar/",
-	},
-	{
-		img: "/assets/clients/enod.png",
-		empresa_name: "FABRICA ENOD SA",
-		url: "https://enodndt.com/",
-	},
-	{
-		img: "/assets/clients/rioja-vial.webp",
-		empresa_name: "RIOJA VIAL SA",
-	},
-	{
-		img: "/assets/clients/venecia.png",
-		empresa_name: "FELIPE VENECIA SA",
-		url: "https://mueblesvenecia.com/",
-	},
-	{
-		img: "/assets/clients/rioja-vial.webp",
-		empresa_name: "HOTEL PLAZA",
-	},
-	{
-		img: "/assets/clients/cerdo-de-los-llanos.svg",
-		empresa_name: "CERDOS DE LOS LLANOS SA",
-		url: "https://cerdodelosllanos.com.ar/",
-	},
-	{
-		img: "/assets/clients/omintART.svg",
-		empresa_name: "OMINT ART",
-		url: "https://www.omintart.com.ar/",
-	},
-	{
-		img: "/assets/clients/rioja-vial.webp",
-		empresa_name: "SMG ART",
-	},
-	{
-		img: "/assets/clients/grupo-paolini.png",
-		empresa_name: "Paolini SA",
-		url: "https://grupopaolini.com/",
-	},
-	{
-		img: "/assets/clients/paolini.png",
-		empresa_name: "Paolini-britos SA",
-		url: "https://www.paolini.com.ar/",
-	},
-	{
-		img: "/assets/clients/rioja-vial.webp",
-		empresa_name: "Edelar",
-		url: "https://www.edelar.com.ar/",
-	},
-	{
-		img: "/assets/clients/roggio.png",
-		empresa_name: "Benito Roggio - vialmani ute",
-		url: "https://www.broggio.com.ar/",
-	},
-	// duplicados
-	{
-		img: "/assets/clients/farmanor.png",
-		empresa_name: "Farmanor",
-	},
-	{
-		img: "/assets/clients/global-medica.svg",
-		empresa_name: "Global Medica",
-		url: "https://www.globalmedica.com.ar/",
-	},
-	{
-		img: "/assets/clients/enod.png",
-		empresa_name: "FABRICA ENOD SA",
-		url: "https://enodndt.com/",
-	},
-	{
-		img: "/assets/clients/rioja-vial.webp",
-		empresa_name: "RIOJA VIAL SA",
-	},
-	{
-		img: "/assets/clients/venecia.png",
-		empresa_name: "FELIPE VENECIA SA",
-		url: "https://mueblesvenecia.com/",
-	},
-	{
-		img: "/assets/clients/rioja-vial.webp",
-		empresa_name: "HOTEL PLAZA",
-	},
-	{
-		img: "/assets/clients/cerdo-de-los-llanos.svg",
-		empresa_name: "CERDOS DE LOS LLANOS SA",
-		url: "https://cerdodelosllanos.com.ar/",
-	},
-	{
-		img: "/assets/clients/omintART.svg",
-		empresa_name: "OMINT ART",
-		url: "https://www.omintart.com.ar/",
-	},
-	{
-		img: "/assets/clients/rioja-vial.webp",
-		empresa_name: "SMG ART",
-	},
-	{
-		img: "/assets/clients/grupo-paolini.png",
-		empresa_name: "Paolini SA",
-		url: "https://grupopaolini.com/",
-	},
-	{
-		img: "/assets/clients/paolini.png",
-		empresa_name: "Paolini-britos SA",
-		url: "https://www.paolini.com.ar/",
-	},
-	{
-		img: "/assets/clients/rioja-vial.webp",
-		empresa_name: "Edelar",
-		url: "https://www.edelar.com.ar/",
-	},
-	{
-		img: "/assets/clients/roggio.png",
-		empresa_name: "Benito Roggio - vialmani ute",
-		url: "https://www.broggio.com.ar/",
-	},
-];
+import empresas from "../config/Empresas";
 
 export default function Carousel() {
 	const [offset, setOffset] = useState(0);
@@ -142,13 +17,8 @@ export default function Carousel() {
 		return () => clearInterval(interval);
 	}, [isHovered]);
 
-	const ITEM_WIDTH = 180; // cambiar según el diseño (en px)
-	// const VISIBLE_ITEMS = 5;
+	const ITEM_WIDTH = 180;
 	const TOTAL_ITEMS = 13;
-
-	// const items = Array.from({ length: TOTAL_ITEMS * 2 }).map(
-	// 	(_, i) => i % TOTAL_ITEMS
-	// );
 
 	useEffect(() => {
 		const interval = setInterval(() => {
