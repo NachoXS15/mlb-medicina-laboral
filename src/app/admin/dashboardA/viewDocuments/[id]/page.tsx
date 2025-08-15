@@ -11,7 +11,7 @@ export default async function page({ params }: InferGetServerSidePropsType<typeo
     const profile = await fetchProfilebyId(id)
     const supabase = await createClient();
 
-    const {data: documents, error} = await supabase.from('docs').select().eq("user_id", id)    // const docs: string[] = [];
+    const {data: documents, error} = await supabase.from('docs').select().eq("user_id", id)
     if (error) {
         console.error(error);
     }
