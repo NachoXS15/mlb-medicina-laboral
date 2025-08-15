@@ -4,49 +4,76 @@ import { ArrowLeft, Plus } from "lucide-react";
 import Link from "next/link";
 import { supabaseClient } from "@/app/utils/supabase/client";
 import React, { useState } from "react";
-import { useParams } from "next/navigation";
+import { redirect, useParams } from "next/navigation";
 
 export default function Page() {
     const params = useParams<{ id: string }>();
     const [loading, setLoading] = useState(false)
     const [file, setFile] = useState<File | null>(null)
     const [fileName, setFileName] = useState("");
+    const [fileActive, setFileActive] = useState(false)
 
-
-    const handleFileChange = (e) => {
-        if (e.target.files.length > 0) {
-            setFileName(e.target.files[0].name);
-            setFile(e.target.files[0])
-            console.log(file?.name);
-            
+    const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const files = e.target.files;
+        if (files && files.length > 0) {
+            setFileActive(true)
+            setFileName(files[0].name);
+            setFile(files[0]);
+            console.log(files[0].name);
         } else {
             setFileName("");
+            setFile(null);
         }
     };
 
+    
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        const formData = new FormData(e.currentTarget)
+        const fileType = formData.get("type") as string
+        
         e.preventDefault()
         if (!file) {
             console.log("No hay archivo");
             return;
         }
+        const filePath = `${params.id}/${fileName}`
 
         setLoading(true)
 
-        const filePath = `${params.id}/${fileName}`
-        const {error: errorUpload} = await supabaseClient.storage.from('docsbucket').upload(filePath, file)
-        if (errorUpload) {
-            console.log(errorUpload);
-            setLoading(true)
+        // console.log("path: ", filePath.replace(" ", "_"));
+        // console.log("name: ", fileName.replace(" ", "_"));
+        // console.log("tipo: ", fileType);
+        // console.log("usuario: ", params.id);
+        
+
+        try {
+            const {error: errorUpload} = await supabaseClient.storage.from('docsbucket').upload(filePath, file)
+            if (errorUpload) {
+                console.error(errorUpload);
+            }
+            
+            const { error: insertError } = await supabaseClient.from("docs").insert({
+                path_name: filePath.replace(" ", "_"),
+                doc_name: file.name.replace(" ", "_"),
+                type: fileType,
+                user_id: params.id
+            });
+            if (insertError) {
+                console.error(insertError);
+            }
+            setLoading(false)
+            redirect(`/admin/dashboardA/viewDocuments/${params.id}`)
+        } catch (error) {
+            console.log(error);
         }
 
     }
 
     return (
-        <main className="flex flex-col w-full font-main my-15 text-gray-700 bg-white justify-center items-center">
+        <main className="flex flex-col w-full font-main my-10 text-gray-700 bg-white justify-center items-center">
             <div className="w-10/12 xl:w-5/12">
                 <div className="flex items-center px-10 gap-3">
-                    <Link href="/admin/dashboardA" className="cursor-pointer hover:scale-110 transition"><ArrowLeft /></Link>
+                    <Link href={`/admin/dashboardA/viewDocuments/${params.id}`} className="cursor-pointer hover:scale-110 transition"><ArrowLeft /></Link>
                     <h2 className="text-2xl font-bold text-center self-center">Carga de Documento</h2>
                 </div>
                 <form onSubmit={handleSubmit} className='w-full flex items-center shadow-xl p-10 flex-col gap-5'>
@@ -67,7 +94,7 @@ export default function Page() {
                                 htmlFor="file-upload"
                                 className="flex flex-col items-center justify-center w-full h-64 border-2 border-dashed border-bluemain rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100 transition"
                             >
-                                <div className="flex flex-col items-center justify-center pt-5 pb-6">
+                                <div aria-disabled={fileActive} className="flex flex-col items-center justify-center pt-5 pb-6">
                                     <Plus />
                                     <p className="mb-2 text-sm text-gray-500">
                                         <span className="font-semibold">Haz clic para subir</span> o arrastra y suelta
