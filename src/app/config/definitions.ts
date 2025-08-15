@@ -15,6 +15,7 @@ export interface UserSignUp{
 }
 
 export interface DocType{
+    id: string
     doc_name: string
     path_name: string
     type: string

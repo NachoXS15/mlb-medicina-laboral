@@ -23,7 +23,6 @@ export async function fetchProfilebyId(id: string){
         if (error) {
             console.log(error);
         }
-        console.log(profile);
         return profile as ProfileType;
         
     } catch (error) {

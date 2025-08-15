@@ -1,8 +1,9 @@
+
+import DeleteButton from "@/app/components/DeleteButton";
 import DownloadButton from "@/app/components/DownloadButton";
 import { DocType } from "@/app/config/definitions";
 import { fetchProfilebyId } from "@/app/lib/data-server";
 import { createClient } from "@/app/utils/supabase/server";
-import { Trash } from "lucide-react";
 import { InferGetServerSidePropsType } from "next";
 import { getServerSideProps } from "next/dist/build/templates/pages";
 import Link from "next/link";
@@ -39,8 +40,8 @@ export default async function page({ params }: InferGetServerSidePropsType<typeo
                             </div>
                             <span className="px-5 py-2 bg-blue-200 rounded">{doc.type}</span>
                             <div className="flex items-center gap-5 px-15">
-                                <Link href="" className='hove:scale-105 transition'><DownloadButton size={24} filePath={doc.path_name}/></Link>
-                                <Link href="" className="hover:scale-105 transition"><Trash size={24} /></Link>
+                                <span className='hove:scale-105 transition'><DownloadButton size={24} filePath={doc.path_name}/></span>
+                                <span className="hover:scale-105 transition"><DeleteButton filePath={doc.path_name} id={doc.id} /></span>
                             </div>
                         </div> 
                     ))}
