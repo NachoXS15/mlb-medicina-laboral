@@ -35,7 +35,7 @@ export default function Form() {
 				<input
 					type="text"
 					name="name"
-					id="formName"
+					id="formNombre"
 					className="bg-white resize-none w-full rounded-xl py-2 px-2 text-s-shadow focus:outline-bluemain"
 					placeholder="Nombre completo..."
 				/>

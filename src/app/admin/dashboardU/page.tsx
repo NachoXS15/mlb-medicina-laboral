@@ -13,6 +13,8 @@ export default async function page() {
     const { data: profile } = await supabase.from('profiles').select('*').eq('id', data.user?.id).single()
     
     
+    
+    
     if (error || !data?.user) {
         redirect('/admin/login')
     } else if (profile?.role == "admin") {
