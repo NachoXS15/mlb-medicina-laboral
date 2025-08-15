@@ -3,7 +3,7 @@ import logo from '../../assets/logo_blanco.webp'
 import Image from 'next/image'
 import { createClient } from '@/app/utils/supabase/server'
 import { redirect } from 'next/navigation'
-import { Download, LogOut, Trash } from 'lucide-react'
+import { LogOut } from 'lucide-react'
 import DownloadButton from '@/app/components/DownloadButton'
 
 export default async function page() {
@@ -21,6 +21,10 @@ export default async function page() {
     
 
     const {data: documents, error: docError} = await supabase.from('docs').select().eq("user_id", profile.id)
+    if (docError) {
+        console.log(docError);
+        return;
+    }
     return (
         <main className='w-full min-h-screen font-main'>
             <section className="w-full min-h-screen bg-cover bg-center " style={{ backgroundImage: `url('/assets/ypf.jpg')` }}>

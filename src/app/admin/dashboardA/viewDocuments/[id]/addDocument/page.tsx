@@ -46,8 +46,8 @@ export default function Page() {
             }
             
             const { error: insertError } = await supabaseClient.from("docs").insert({
-                path_name: filePath.replace(" ", "_"),
-                doc_name: file.name.replace(" ", "_"),
+                path_name: filePath,
+                doc_name: file.name,
                 type: fileType,
                 user_id: params.id
             });
