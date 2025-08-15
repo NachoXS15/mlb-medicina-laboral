@@ -4,6 +4,7 @@ import { fetchProfilebyId } from "@/app/lib/data-server";
 import { createClient } from "@/app/utils/supabase/server";
 import { Trash } from "lucide-react";
 import { InferGetServerSidePropsType } from "next";
+import { getServerSideProps } from "next/dist/build/templates/pages";
 import Link from "next/link";
 
 export default async function page({ params }: InferGetServerSidePropsType<typeof getServerSideProps>) {

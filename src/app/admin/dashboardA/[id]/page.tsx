@@ -4,6 +4,7 @@ import { ArrowLeft } from "lucide-react"
 import { InferGetServerSidePropsType } from "next"
 import Link from "next/link"
 import { editProfile } from "./actions";
+import { getServerSideProps } from "next/dist/build/templates/pages";
 
 export default async function page({ params }: InferGetServerSidePropsType<typeof getServerSideProps>) {
     const { id } = await params;

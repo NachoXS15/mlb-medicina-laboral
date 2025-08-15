@@ -3,12 +3,9 @@ import emailjs from "@emailjs/browser";
 import { useRef } from "react";
 
 export default function Form() {
-	const EMAILJS_SERVICE_ID = process.env
-		.NEXT_PUBLIC_EMAILJS_SERVICE_ID as string;
-	const EMAILJS_TEMPLATE_ID = process.env
-		.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID as string;
-	const EMAILJS_PUBLIC_KEY = process.env
-		.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY as string;
+	const NEXT_PUBLIC_EMAILJS_SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID as string
+	const NEXT_PUBLIC_EMAILJS_TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID as string
+	const NEXT_PUBLIC_EMAILJS_PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY as string
 
 	const form = useRef<HTMLFormElement>(null);
 	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -16,16 +13,10 @@ export default function Form() {
 		// descomentar cuando estemos listos
 
 		if (form.current) {
-			emailjs
-				.sendForm(
-					EMAILJS_SERVICE_ID,
-					EMAILJS_TEMPLATE_ID,
-					form.current,
-					{
-						publicKey: EMAILJS_PUBLIC_KEY,
-					}
-				)
-				.then(() => {
+			emailjs.sendForm(NEXT_PUBLIC_EMAILJS_SERVICE_ID, NEXT_PUBLIC_EMAILJS_TEMPLATE_ID, form.current, {
+				publicKey: NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
+			}).then(
+				() => {
 					console.log("Mail enviado");
 				})
 				.catch((err) => {
