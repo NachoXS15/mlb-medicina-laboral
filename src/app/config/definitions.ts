@@ -13,3 +13,10 @@ export interface UserSignUp{
     mail: string
     password: string
 }
+
+export interface DocType{
+    doc_name: string
+    path_name: string
+    type: string
+    created_at: string
+}
