@@ -3,21 +3,48 @@ import emailjs from "@emailjs/browser";
 import { useRef } from "react";
 
 export default function Form() {
-	const NEXT_PUBLIC_EMAILJS_SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID as string
-	const NEXT_PUBLIC_EMAILJS_TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID as string
-	const NEXT_PUBLIC_EMAILJS_PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY as string
+	const NEXT_PUBLIC_EMAILJS_SERVICE_ID = process.env
+		.NEXT_PUBLIC_EMAILJS_SERVICE_ID as string;
+	const NEXT_PUBLIC_EMAILJS_TEMPLATE_ID = process.env
+		.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID as string;
+	const NEXT_PUBLIC_EMAILJS_PUBLIC_KEY = process.env
+		.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY as string;
 
 	const form = useRef<HTMLFormElement>(null);
 	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		// descomentar cuando estemos listos
-
 		if (form.current) {
-			emailjs.sendForm(NEXT_PUBLIC_EMAILJS_SERVICE_ID, NEXT_PUBLIC_EMAILJS_TEMPLATE_ID, form.current, {
-				publicKey: NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
-			}).then(
-				() => {
+			const formData = new FormData(form.current);
+			const nombre = (formData.get("nombre") as string)?.trim();
+			const asunto = (formData.get("asunto") as string)?.trim();
+			const correo = (formData.get("correo") as string)?.trim();
+			const telefono = (formData.get("telefono") as string)?.trim();
+			const mensaje = (formData.get("mensaje") as string)?.trim();
+			/*
+            nombre
+            asunto
+            telefono
+            correo
+            mensaje
+            */
+			if (!nombre || !correo || !mensaje || !asunto || !telefono) {
+				console.warn("Campos obligatorios incompletos");
+				alert("Por favor completa todos los campos obligatorios.");
+				return;
+			}
+			emailjs
+				.sendForm(
+					NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+					NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
+					form.current,
+					{
+						publicKey: NEXT_PUBLIC_EMAILJS_PUBLIC_KEY,
+					}
+				)
+				.then(() => {
 					console.log("Mail enviado");
+					form.current.reset();
 				})
 				.catch((err) => {
 					console.log("Error al enviar", err);
@@ -34,19 +61,21 @@ export default function Form() {
 			<div className="flex w-full">
 				<input
 					type="text"
-					name="name"
+					name="nombre"
 					id="formNombre"
 					className="bg-white resize-none w-full rounded-xl py-2 px-2 text-s-shadow focus:outline-bluemain"
 					placeholder="Nombre completo..."
+					required
 				/>
 			</div>
 			<div className="flex w-full gap-2">
 				<input
 					type="text"
-					name="empresa"
-					id="formEmpresa"
+					name="asunto"
+					id="formAsunto"
 					className="bg-white resize-none w-1/2 rounded-xl py-2 px-2 text-s-shadow focus:outline-bluemain"
-					placeholder="Empresa..."
+					placeholder="Asunto..."
+					required
 				/>
 				<input
 					type="text"
@@ -54,6 +83,7 @@ export default function Form() {
 					id="formTelefono"
 					className="bg-white resize-none w-1/2 rounded-xl py-2 px-2 text-s-shadow focus:outline-bluemain"
 					placeholder="Teléfono"
+					required
 				/>
 			</div>
 			<div className="flex w-full">
@@ -63,14 +93,16 @@ export default function Form() {
 					id="formCorreo"
 					className="bg-white resize-none w-full rounded-xl py-2 px-2 text-s-shadow focus:outline-bluemain"
 					placeholder="Dejanos un correo de contacto..."
+					required
 				/>
 			</div>
 			<div className="flex w-full">
 				<textarea
 					className="bg-white resize-none w-full min-h-35 rounded-xl text-s-shadow p-2 focus:outline-bluemain"
-					name="message"
+					name="mensaje"
 					id="formMessage"
 					placeholder="Consulta..."
+					required
 				></textarea>
 			</div>
 			<div className="flex w-full">

@@ -82,7 +82,7 @@ export default function Home() {
 						IMAGEN
 					</div>
 					<div className="z-40 w-[80%] md:w-1/2 min-h-55 bg-bluemain p-5 rounded-3xl relative bottom-10 md:bottom-0 md:right-10 lg:right-10">
-						<h3 className="text-sm md:text-base text-bronze">
+						<h3 className="text-sm md:text-base text-bronze font-bold">
 							Sobre nosotros
 						</h3>
 						<h4 className="text-base md:text-2xl text-white font-bold">
@@ -112,6 +112,7 @@ export default function Home() {
 									width="234"
 									height="318"
 									alt="imagen"
+									priority={false}
 								/>
 								<div className="absolute right-0 top-0 lg:top-65 lg:bottom-0 z-40 py-2 px-2 bg-bluemain w-1/2 h-full lg:w-full lg:h-auto flex items-center justify-center">
 									<p className="text-center font-bold  ">
@@ -128,6 +129,7 @@ export default function Home() {
 									width="234"
 									height="318"
 									alt="imagen"
+									priority={false}
 								/>
 								<div className="absolute right-0 top-0 lg:top-65 lg:bottom-0 z-40 py-2 px-2 bg-bluemain w-1/2 h-full lg:w-full lg:h-auto flex items-center justify-center">
 									<p className="text-center font-bold  ">
@@ -143,6 +145,7 @@ export default function Home() {
 									width="234"
 									height="318"
 									alt="imagen"
+									priority={false}
 								/>
 								<div className="absolute right-0 top-0 lg:top-65 lg:bottom-0 z-40 py-2 px-2 bg-bluemain w-1/2 h-full lg:w-full lg:h-auto flex items-center justify-center">
 									<p className="text-center font-bold  ">
@@ -173,6 +176,7 @@ export default function Home() {
 									width="234"
 									height="318"
 									alt="imagen"
+									priority={false}
 								/>
 								<div className="absolute right-0 top-0 lg:top-65 lg:bottom-0 z-40 py-2 px-2 bg-bluemain w-1/2 h-full lg:w-full lg:h-auto flex items-center justify-center">
 									<p className="text-center font-bold">
@@ -185,10 +189,11 @@ export default function Home() {
 						<div className="w-full md:w-1/2 lg:w-1/4 h-65 lg:h-85 pb-5 pl-5">
 							<div className="gallery-item">
 								<Image
-									src="/assets/services/service.png"
+									src="/assets/services/service-08.png"
 									width="234"
 									height="318"
 									alt="imagen"
+									priority={false}
 								/>
 								<div className="absolute right-0 top-0 lg:top-65 lg:bottom-0 z-40 py-2 px-2 bg-bluemain w-1/2 h-full lg:w-full lg:h-auto flex items-center justify-center">
 									<p className="text-center font-bold  ">
@@ -204,6 +209,7 @@ export default function Home() {
 									width="234"
 									height="318"
 									alt="imagen"
+									priority={false}
 								/>
 								<div className="absolute right-0 top-0 lg:top-65 lg:bottom-0 z-40 py-2 px-2 bg-bluemain w-1/2 h-full lg:w-full lg:h-auto flex items-center justify-center">
 									<p className="text-center font-bold  ">
@@ -219,6 +225,7 @@ export default function Home() {
 									width="234"
 									height="318"
 									alt="imagen"
+									priority={false}
 								/>
 								<div className="absolute right-0 top-0 lg:top-65 lg:bottom-0 z-40 py-2 px-2 bg-bluemain w-1/2 h-full lg:w-full lg:h-auto flex items-center justify-center">
 									<p className="text-center font-bold">
@@ -231,7 +238,7 @@ export default function Home() {
 				</section>
 				<section
 					id="clients"
-					className="w-full py-5 bg-bluemain rounded-3xl overflow-hidden"
+					className="w-full py-5 bg-bluemain md:rounded-3xl overflow-hidden"
 				>
 					<h3 className="text-sm md:text-base text-white pl-2 md:pl-0 text-center">
 						Nuestros clientes
