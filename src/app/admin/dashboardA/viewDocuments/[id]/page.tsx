@@ -1,17 +1,22 @@
+import DownloadButton from "@/app/components/DownloadButton";
+import { DocType } from "@/app/config/definitions";
 import { fetchProfilebyId } from "@/app/lib/data-server";
-import { Download, Trash } from "lucide-react";
+import { createClient } from "@/app/utils/supabase/server";
+import { Trash } from "lucide-react";
 import { InferGetServerSidePropsType } from "next";
 import Link from "next/link";
 
 export default async function page({ params }: InferGetServerSidePropsType<typeof getServerSideProps>) {
     const { id } = await params;
     const profile = await fetchProfilebyId(id)
+    const supabase = await createClient();
 
-    const
+    const {data: documents, error} = await supabase.from('docs').select().eq("user_id", id)    // const docs: string[] = [];
+    if (error) {
+        console.error(error);
+    }
 
-    const docs: string[] = [];
-    const 
-
+    const docs = documents as DocType[];
 
     return (
         <>
@@ -21,18 +26,19 @@ export default async function page({ params }: InferGetServerSidePropsType<typeo
                     <Link href={`/admin/dashboardA/viewDocuments/${id}/addDocument`} className="font-bold hover:underline">Agregar Documento</Link>
                 </div>
                 <section className='w-full h-[700px] border border-slate-300'>
-                    {docs.length == 0 ? (
+                    {docs?.length == 0 ? (
                         <div className='flex items-center justify-center w-full h-full'>
                             <h2>No hay documentos cargados.</h2>
                         </div> 
-                    ): docs.map((doc, i) => (
+                    ): docs?.map((doc, i) => (
                         <div key={i} className='flex items-center justify-between bg-slate-100 border-b border-b-slate-400 p-5'>
-                            <div>
-                                <h2 className='font-bold'>Julio_2025</h2>
-                                <span>Subido: </span>
+                            <div className="">
+                                <h2 className='font-bold'>{doc.doc_name}</h2>
+                                <span>Cargado: {doc.created_at.slice(0, 19).replace("T", " | ")}</span>
                             </div>
-                            <div className="flex items-center gap-5">
-                                <Link href="" className='hove:scale-105 transition'><Download size={24} color='#000' /></Link>
+                            <span className="px-5 py-2 bg-blue-200 rounded">{doc.type}</span>
+                            <div className="flex items-center gap-5 px-15">
+                                <Link href="" className='hove:scale-105 transition'><DownloadButton size={24} filePath={doc.path_name}/></Link>
                                 <Link href="" className="hover:scale-105 transition"><Trash size={24} /></Link>
                             </div>
                         </div> 
