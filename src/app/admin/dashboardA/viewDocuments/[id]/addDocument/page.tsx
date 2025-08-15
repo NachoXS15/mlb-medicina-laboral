@@ -74,9 +74,9 @@ export default function Page() {
                         <div className='w-full flex flex-col'>
                             <label htmlFor="">Tipo de Documento</label>
                             <select name="type" className='active:border-blue-500 h-10 px-5 border border-bluemain rounded-2xl'>
-                                <option value="Examenes Preocupaciones">Examenes Preocupaciones</option>
+                                <option value="Examenes Preocupacionales">Examenes Preocupacionales</option>
                                 <option value="Examenes Periodicos">Examenes Periodicos</option>
-                                <option value="Pericias médicas">Pericias médicas</option>
+                                <option value="Pericias Médicas">Pericias Médicas</option>
                                 <option value="Otros">Otros</option>
                             </select>
                         </div>
