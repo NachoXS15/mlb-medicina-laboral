@@ -17,6 +17,7 @@ export default function page() {
         const type = formData.get("type")?.toString();
         const status = formData.get("status")?.toString();
         const role = formData.get("role")?.toString();
+        const img = formData.get("img")?.toString();
         const password = formData.get("password")?.toString();
 
         console.log({
@@ -24,7 +25,8 @@ export default function page() {
             mail,
             type,
             status,
-            role
+            role,
+            img
         });
         
         if (!name || !mail || !type || !status || !role || !password) {
@@ -59,7 +61,8 @@ export default function page() {
             mail,
             type,
             status,
-            role
+            role,
+            img
         }: ProfileType) => {
             try {
                 const { data, error } = await supabaseClient
@@ -71,7 +74,8 @@ export default function page() {
                             mail,
                             type,
                             status,
-                            role
+                            role,
+                            img
                         },
                     ])
                     .select();
@@ -155,7 +159,7 @@ export default function page() {
                         <div className="flex w-full gap-5">
                             <div className='w-full flex flex-col'>
                                 <label htmlFor="">Imagen de Local</label>
-                                <input type="file" name="img" className='h-10 px-5 border border-bluemain rounded-2xl' />
+                                <input type="text" name="img" className='h-10 px-5 border border-bluemain rounded-2xl' />
                             </div>
                         </div>
                         <button type='submit' className='mt-5 bg-bronze text-white w-4/5 h-10 rounded-2xl transition border hover:border-bronze hover:bg-white hover:text-bronze'>Agregar Usuario</button>
