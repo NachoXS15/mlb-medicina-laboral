@@ -30,3 +30,30 @@ export async function fetchProfilebyId(id: string){
         return null;
     }
 }
+
+export async function disableProfile(id: string | undefined){
+    try {
+        const supabase = await createClient();
+        const { error } = await supabase.from('profiles').update({"status": "Inactivo"}).eq("id", id).select()
+        if (error) {
+            console.error(error);
+        }
+        window.location.reload()
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+
+export async function enableProfile(id: string | undefined){
+    try {
+        const supabase = await createClient();
+        const { error } = await supabase.from('profiles').update({"status": "Activo"}).eq("id", id).select()
+        if (error) {
+            console.error(error);
+        }
+        window.location.reload()
+    } catch (error) {
+        console.error(error);
+    }
+}
