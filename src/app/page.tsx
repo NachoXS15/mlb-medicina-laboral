@@ -78,8 +78,14 @@ export default function Home() {
 					id="aboutUs"
 					className="w-full py-5 flex flex-col md:flex-row items-center"
 				>
-					<div className="w-[90%] md:w-1/2 h-65 flex justify-center items-center bg-blue-300 rounded-4xl relative left-0 md:left-10 lg:left-20">
-						IMAGEN
+					<div className="w-[90%] md:w-1/2 h-65 flex justify-center items-center rounded-4xl relative left-0 md:left-10 lg:left-20 overflow-hidden">
+						<Image
+							src="/assets/about.png"
+							width="510"
+							height="220"
+							alt="imagen"
+							priority={true}
+						/>
 					</div>
 					<div className="z-40 w-[80%] md:w-1/2 min-h-55 bg-bluemain p-5 rounded-3xl relative bottom-10 md:bottom-0 md:right-10 lg:right-10">
 						<h3 className="text-sm md:text-base text-bronze font-bold">
