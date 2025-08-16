@@ -4,7 +4,7 @@ import { ArrowLeft, Plus } from "lucide-react";
 import Link from "next/link";
 import { supabaseClient } from "@/app/utils/supabase/client";
 import React, { useState } from "react";
-import { redirect, useParams } from "next/navigation";
+import { useParams } from "next/navigation";
 
 export default function Page() {
     const params = useParams<{ id: string }>();
@@ -55,7 +55,7 @@ export default function Page() {
                 console.error(insertError);
             }
             setLoading(false)
-            redirect(`/admin/dashboardA/viewDocuments/${params.id}`)
+            window.location.href = `/admin/dashboardA/viewDocuments/${params.id}`
         } catch (error) {
             console.log(error);
         }
