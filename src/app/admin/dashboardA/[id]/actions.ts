@@ -14,6 +14,7 @@ export async function editProfile(formData: FormData){
         type: formData.get("type") as string,
         status: formData.get("status") as string,
         role: formData.get("role") as string,
+        img: formData.get("img") as string,
     }
 
     console.log(data);
