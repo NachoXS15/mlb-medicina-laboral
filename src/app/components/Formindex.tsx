@@ -44,7 +44,7 @@ export default function Form() {
 				)
 				.then(() => {
 					console.log("Mail enviado");
-					form.current.reset();
+					form.current?.reset();
 				})
 				.catch((err) => {
 					console.log("Error al enviar", err);
