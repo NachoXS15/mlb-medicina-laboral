@@ -78,7 +78,7 @@ export default function Home() {
 					id="aboutUs"
 					className="w-full py-5 flex flex-col md:flex-row items-center"
 				>
-					<div className="w-[90%] md:w-1/2 h-65 flex justify-center items-center rounded-4xl relative left-0 md:left-10 lg:left-20 overflow-hidden">
+					<div className="w-[90%] md:w-1/2 h-65 flex justify-center items-center rounded-4xl relative left-0 md:left-10 lg:left-20 overflow-hidden shadow-lg">
 						<Image
 							src="/assets/about.png"
 							width="510"
