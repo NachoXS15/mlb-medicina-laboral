@@ -13,8 +13,6 @@ export default async function page() {
     const { data: profile } = await supabase.from('profiles').select('*').eq('id', data.user?.id).single()
     
     
-    
-    
     if (error || !data?.user) {
         redirect('/admin/login')
     } else if (profile?.role == "admin") {
@@ -32,7 +30,7 @@ export default async function page() {
     
     return (
         <main className='w-full min-h-screen font-main'>
-            <section className="w-full min-h-screen bg-cover bg-center " style={{ backgroundImage: `url('/assets/ypf.jpg')` }}>
+            <section className="w-full min-h-screen bg-cover bg-center " style={{ backgroundImage: `url('${profile?.img}')` }}>
             {/* agregar foto de fondo y color por link  */}
                 <div className="w-full min-h-screen bg-s-shadow/50 flex items-center justify-center flex-col gap-5">
                     <div>

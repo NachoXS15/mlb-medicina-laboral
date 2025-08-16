@@ -60,7 +60,7 @@ export default async function page({ params }: InferGetServerSidePropsType<typeo
                         <div className="flex w-full gap-5">
                             <div className='w-full flex flex-col'>
                                 <label htmlFor="">Imagen de Local</label>
-                                <input type="file" name="img" className='h-10 px-5 border border-bluemain rounded-2xl' />
+                                <input type="img" defaultValue={profile?.img} name="img" className='h-10 px-5 border border-bluemain rounded-2xl' />
                             </div>
                         </div>
                         <button formAction={editProfile} className='mt-5 bg-bronze text-white w-4/5 h-10 rounded-2xl transition border hover:border-bronze hover:bg-white hover:text-bronze'>Actualizar Usuario</button>
