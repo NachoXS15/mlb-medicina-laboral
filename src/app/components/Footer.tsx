@@ -44,6 +44,13 @@ export default async function Footer() {
 			</div>
 			<p className="text-center text-sm text-white">
 				Copyright &copy; 2025 | Diseñado por:{" "}
+				<a
+					href="https://devignaciopantoja.com.ar/"
+					className="text-bronze"
+				>
+					Pantoja Ignacio
+				</a>{" "}
+				- Paz Lucas
 			</p>
 		</footer>
 	);
