@@ -30,6 +30,8 @@ export default function Page() {
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         const formData = new FormData(e.currentTarget)
         const fileType = formData.get("type") as string
+        const year = formData.get("year") as string
+        const month = formData.get("month") as string
         
         e.preventDefault()
         if (!file) {
@@ -78,6 +80,34 @@ export default function Page() {
                                 <option value="Examenes Periodicos">Examenes Periodicos</option>
                                 <option value="Pericias Médicas">Pericias Médicas</option>
                                 <option value="Otros">Otros</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div className="flex w-1/2 gap-5">
+                        <div className='w-full flex flex-col'>
+                            <label htmlFor="">Tipo de Documento</label>
+                            <select name="year" className='w-full active:border-blue-500 h-10 px-5 border border-bluemain rounded-2xl'>
+                                <option value="2025">2025</option>
+                                <option value="2024">2024</option>
+                                <option value="2023">2023</option>
+                                <option value="2022">2022</option>
+                            </select>
+                        </div>
+                        <div className='w-full flex flex-col'>
+                            <label htmlFor="">Tipo de Documento</label>
+                            <select name="month" className='active:border-blue-500 w-full h-10 px-5 border border-bluemain rounded-2xl'>
+                                <option value="Enero">Enero</option>
+                                <option value="Febrero">Febrero</option>
+                                <option value="Marzo">Marzo</option>
+                                <option value="Abril">Abril</option>
+                                <option value="Mayo">Mayo</option>
+                                <option value="Junio">Junio</option>
+                                <option value="Julio">Julio</option>
+                                <option value="Agosto">Agosto</option>
+                                <option value="Septimebre">Septimebre</option>
+                                <option value="Octubre">Octubre</option>
+                                <option value="Noviembre">Noviembre</option>
+                                <option value="Diciembre">Diciembre</option>
                             </select>
                         </div>
                     </div>
