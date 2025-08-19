@@ -47,17 +47,23 @@ export default function Carousel() {
 						style={{ width: ITEM_WIDTH }}
 					>
 						<div className="carrousel-item bg-white text-center p-2 rounded-md shadow aspect-square overflow-hidden flex justify-center items-center">
-							<Link
-								href={empresa.url ? empresa.url : ""}
-								target="_blank"
-							>
+							{empresa.url ? (
+								<Link href={empresa.url} target="_blank">
+									<Image
+										src={empresa.img}
+										alt={`Logo ${empresa.empresa_name}`}
+										width={200}
+										height={200}
+									/>
+								</Link>
+							) : (
 								<Image
 									src={empresa.img}
 									alt={`Logo ${empresa.empresa_name}`}
 									width={200}
 									height={200}
 								/>
-							</Link>
+							)}
 						</div>
 					</div>
 				))}
