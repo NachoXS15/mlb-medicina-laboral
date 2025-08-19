@@ -4,7 +4,8 @@ import Image from 'next/image'
 import { createClient } from '@/app/utils/supabase/server'
 import { redirect } from 'next/navigation'
 import { LogOut } from 'lucide-react'
-import SearchFormUser from '@/app/components/SearchFormUser'
+import SearchFormUser from '@/app/components/DocDirectory'
+import DocumentDirectory from '@/app/components/DocDirectory'
 
 export default async function page() {
 
@@ -41,7 +42,7 @@ export default async function page() {
                     <a href="#docs" className="text-2xl text-white font-main hover:underline">Ver mis documentos</a>
                 </div>
             </section>
-            <SearchFormUser docs={documents} />
+            <DocumentDirectory docs={documents} />
         </main>
     )
 }

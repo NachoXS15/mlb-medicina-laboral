@@ -20,4 +20,6 @@ export interface DocType{
     path_name: string
     type: string
     created_at: string
+    year?: string
+    month?: string
 }
