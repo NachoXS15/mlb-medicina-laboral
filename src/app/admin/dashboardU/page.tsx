@@ -6,6 +6,8 @@ import { redirect } from 'next/navigation'
 import { LogOut } from 'lucide-react'
 import SearchFormUser from '@/app/components/DocDirectory'
 import DocumentDirectory from '@/app/components/DocDirectory'
+import SearchFormUser from '@/app/components/DocDirectory'
+import DocumentDirectory from '@/app/components/DocDirectory'
 
 export default async function page() {
 
@@ -32,6 +34,7 @@ export default async function page() {
     return (
         <main className='w-full min-h-screen font-main'>
             <section className="w-full min-h-screen bg-cover bg-center " style={{ backgroundImage: `url('${profile?.img}')` }}>
+            <section className="w-full min-h-screen bg-cover bg-center " style={{ backgroundImage: `url('${profile?.img}')` }}>
             {/* agregar foto de fondo y color por link  */}
                 <div className="w-full min-h-screen bg-s-shadow/50 flex items-center justify-center flex-col gap-5">
                     <div>
@@ -42,6 +45,7 @@ export default async function page() {
                     <a href="#docs" className="text-2xl text-white font-main hover:underline">Ver mis documentos</a>
                 </div>
             </section>
+            <DocumentDirectory docs={documents} />
             <DocumentDirectory docs={documents} />
         </main>
     )
