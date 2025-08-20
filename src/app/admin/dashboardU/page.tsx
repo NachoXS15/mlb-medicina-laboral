@@ -14,7 +14,7 @@ export default async function page() {
     const { data: profile } = await supabase.from('profiles').select('*').eq('id', data.user?.id).single()
     
     
-    if (error || !data?.user) {
+    if (error || !data?.user || profile.status == "Inactivo") {
         redirect('/admin/login')
     } else if (profile?.role == "admin") {
         redirect('/admin/dashboardA')
@@ -38,7 +38,7 @@ export default async function page() {
                         <Image src={logo} width={150} className="absolute left-40 top-40" alt="" />
                         <Link href="/admin/logout" className='text-white absolute top-40 right-40'><LogOut size={30} /></Link>
                     </div>
-                    <h2 className="text-white font-main text-6xl font-bold">¡Bienvenido, {profile.name}!</h2>
+                    <h2 className="text-white font-main text-center text-6xl font-bold">¡Bienvenido, {profile.name}!</h2>
                     <a href="#docs" className="text-2xl text-white font-main hover:underline">Ver mis documentos</a>
                 </div>
             </section>
