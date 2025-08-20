@@ -1,6 +1,6 @@
 import { ProfileType } from "@/app/config/definitions";
 import { ActiveField } from "@/app/config/DynamicFieldsStyles";
-import { Pencil, Trash2 } from "lucide-react";
+import { Pencil } from "lucide-react";
 import Link from "next/link";
 
 export default function TableA({profiles}: {profiles:ProfileType[]}) {

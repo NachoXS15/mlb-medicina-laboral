@@ -44,14 +44,14 @@ export default async function page({ params }: InferGetServerSidePropsType<typeo
                         <div className="flex w-full gap-5">
                             <div className='w-1/2 flex flex-col'>
                                 <label htmlFor="">Estado</label>
-                                <select name="status" className='h-10 px-5 border border-bluemain rounded-2xl'>
+                                <select name="status" defaultValue={profile?.status} className='h-10 px-5 border border-bluemain rounded-2xl'>
                                     <option value="Activo">Activo</option>
                                     <option value="Inactivo">Inactivo</option>
                                 </select>
                             </div>
                             <div className='w-1/2 flex flex-col'>
                                 <label htmlFor="">Rol</label>
-                                <select name="role" className='h-10 px-5 border border-bluemain rounded-2xl'>
+                                <select name="role" defaultValue={profile?.status} className='h-10 px-5 border border-bluemain rounded-2xl'>
                                     <option value="client">Cliente</option>
                                     <option value="admin">Administrador</option>
                                 </select>
