@@ -23,8 +23,9 @@ const empresas = [
 		url: "https://mueblesvenecia.com/",
 	},
 	{
-		img: "/assets/clients/rioja-vial.webp",
-		empresa_name: "HOTEL PLAZA",
+		img: "/assets/clients/plazahotel.png",
+		empresa_name: "PLAZA HOTEL",
+		url: "https://www.plazahotel.com.ar/",
 	},
 	{
 		img: "/assets/clients/cerdo-de-los-llanos.svg",
@@ -51,7 +52,7 @@ const empresas = [
 		url: "https://www.paolini.com.ar/",
 	},
 	{
-		img: "/assets/clients/rioja-vial.webp",
+		img: "/assets/clients/edelar.webp",
 		empresa_name: "Edelar",
 		url: "https://www.edelar.com.ar/",
 	},
@@ -85,8 +86,9 @@ const empresas = [
 		url: "https://mueblesvenecia.com/",
 	},
 	{
-		img: "/assets/clients/rioja-vial.webp",
-		empresa_name: "HOTEL PLAZA",
+		img: "/assets/clients/plazahotel.png",
+		empresa_name: "PLAZA HOTEL",
+		url: "https://www.plazahotel.com.ar/",
 	},
 	{
 		img: "/assets/clients/cerdo-de-los-llanos.svg",
@@ -113,7 +115,7 @@ const empresas = [
 		url: "https://www.paolini.com.ar/",
 	},
 	{
-		img: "/assets/clients/rioja-vial.webp",
+		img: "/assets/clients/edelar.webp",
 		empresa_name: "Edelar",
 		url: "https://www.edelar.com.ar/",
 	},
@@ -124,4 +126,4 @@ const empresas = [
 	},
 ];
 
-export default empresas
+export default empresas;
