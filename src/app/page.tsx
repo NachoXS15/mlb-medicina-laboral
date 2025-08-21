@@ -66,7 +66,7 @@ export default function Home() {
 						</h1>
 						<Link
 							href="#contact"
-							className="px-4 py-2 bg-bronze font-bold text-white rounded-full hover:scale-105 transition"
+							className="px-4 py-2 bg-bronze font-bold text-white rounded-full hover:border-bronze hover:bg-white hover:text-bronze transition"
 						>
 							Contactanos
 						</Link>
