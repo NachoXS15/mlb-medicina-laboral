@@ -30,8 +30,8 @@ export default async function Footer() {
 						<ul className="list-none text-xs flex flex-col gap-2">
 							<li className="flex gap-2 items-center">
 								<Mail color="white" size={20} />
-								<a href="mailto:laurabasso28@hotmail.com">
-									laurabasso28@hotmail.com
+								<a href="mailto:drabassocorominas@hotmail.com">
+									drabassocorominas@hotmail.com
 								</a>
 							</li>
 							<li className="flex gap-2 items-center">
