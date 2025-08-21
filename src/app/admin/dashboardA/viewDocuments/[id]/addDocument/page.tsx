@@ -87,7 +87,7 @@ export default function Page() {
                     </div>
                     <div className="flex w-full gap-5">
                         <div className='w-1/2 flex flex-col'>
-                            <label htmlFor="">Tipo de Documento</label>
+                            <label htmlFor="">Año</label>
                             <select name="year" className='w-full active:border-blue-500 h-10 px-5 border border-bluemain rounded-2xl'>
                                 <option value="2025">2025</option>
                                 <option value="2024">2024</option>
@@ -96,7 +96,7 @@ export default function Page() {
                             </select>
                         </div>
                         <div className='w-1/2 flex flex-col'>
-                            <label htmlFor="">Tipo de Documento</label>
+                            <label htmlFor="">Mes</label>
                             <select name="month" className='active:border-blue-500 w-full h-10 px-5 border border-bluemain rounded-2xl'>
                                 <option value="Enero">Enero</option>
                                 <option value="Febrero">Febrero</option>
@@ -126,7 +126,7 @@ export default function Page() {
                                     </p>
                                     <p className="text-xs text-gray-500">Solo archivos .PDF</p>
                                 </div>
-                                <input id="file-upload" type="file" onChange={handleFileChange} className="hidden" />
+                                <input id="file-upload" type="file" accept="application/pdf" onChange={handleFileChange} className="hidden" />
                             </label>
                             {fileName && (
                                 <p className="mt-3 text-sm text-gray-700">

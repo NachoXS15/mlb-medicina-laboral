@@ -65,8 +65,8 @@ export default function Home() {
 							Rioja
 						</h1>
 						<Link
-							href="/"
-							className="px-4 py-2 bg-bronze font-bold text-white rounded-full"
+							href="#contact"
+							className="px-4 py-2 bg-bronze font-bold text-white rounded-full hover:scale-105 transition"
 						>
 							Contactanos
 						</Link>
@@ -284,7 +284,7 @@ export default function Home() {
 								></iframe>
 							</div>
 						</div>
-						<div className="w-full md:w-1/2 h-full">
+						<div className="w-full md:w-1/2 h-full" id="contact">
 							<Formindex />
 						</div>
 					</div>
