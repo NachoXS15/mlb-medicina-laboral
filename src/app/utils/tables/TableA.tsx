@@ -25,7 +25,7 @@ export default function TableA({profiles}: {profiles:ProfileType[]}) {
                     return(
                         <tr key={i} className="h-12 border border-slate-300">
                             <td className="p-4 border text-sm border-slate-200">{profile.name}</td>
-                            <td className="p-4 border text-sm border-slate-200">{profile.created_at?.slice(0, 19).replace("T", " | ")}</td>
+                            <td className="p-4 border text-sm border-slate-200">{profile.created_at?.slice(0, 10).replace("T", " | ")}</td>
                             <td className="p-4 border text-sm border-slate-200">{profile.mail}</td>
                             <td className="p-4 border text-sm border-slate-200">{profile.type ? profile.type : "-"}</td>
                             <td className={`p-4 border text-sm border-slate-200 text-center ${selectedActiveField?.style}`}>{selectedActiveField?.title}</td>
