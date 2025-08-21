@@ -42,7 +42,6 @@ export default async function page() {
                 </div>
             </section>
             <DocumentDirectory docs={documents} />
-            <DocumentDirectory docs={documents} />
         </main>
     )
 }

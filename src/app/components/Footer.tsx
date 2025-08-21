@@ -46,6 +46,7 @@ export default async function Footer() {
 				Copyright &copy; 2025 | Diseñado por:{" "}
 				<a
 					href="https://devignaciopantoja.com.ar/"
+					target="_blank"
 					className="text-bronze"
 				>
 					Pantoja Ignacio

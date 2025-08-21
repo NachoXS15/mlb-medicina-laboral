@@ -51,7 +51,9 @@ export default function Page() {
                 path_name: filePath,
                 doc_name: file.name,
                 type: fileType,
-                user_id: params.id
+                user_id: params.id,
+                year: year,
+                month: month
             });
             if (insertError) {
                 console.error(insertError);
@@ -83,8 +85,8 @@ export default function Page() {
                             </select>
                         </div>
                     </div>
-                    <div className="flex w-1/2 gap-5">
-                        <div className='w-full flex flex-col'>
+                    <div className="flex w-full gap-5">
+                        <div className='w-1/2 flex flex-col'>
                             <label htmlFor="">Tipo de Documento</label>
                             <select name="year" className='w-full active:border-blue-500 h-10 px-5 border border-bluemain rounded-2xl'>
                                 <option value="2025">2025</option>
@@ -93,7 +95,7 @@ export default function Page() {
                                 <option value="2022">2022</option>
                             </select>
                         </div>
-                        <div className='w-full flex flex-col'>
+                        <div className='w-1/2 flex flex-col'>
                             <label htmlFor="">Tipo de Documento</label>
                             <select name="month" className='active:border-blue-500 w-full h-10 px-5 border border-bluemain rounded-2xl'>
                                 <option value="Enero">Enero</option>

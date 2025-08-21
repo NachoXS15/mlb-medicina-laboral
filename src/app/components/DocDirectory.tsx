@@ -1,6 +1,6 @@
 'use client'
 
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { DocType } from "../config/definitions";
 import DownloadButton from "./DownloadButton";
 
@@ -40,7 +40,7 @@ export default function DocumentDirectory({ docs }: Props) {
     const sortedYears = Object.keys(groupedDocs).sort((a, b) => Number(b) - Number(a));
 
     return (
-        <section className="w-10/12 m-auto py-10 min-h-screen flex items-center justify-center flex-col gap-3" id="docs">
+        <section className="w-10/12 m-auto py-10 min-h-screen font-main flex items-center justify-center flex-col gap-3" id="docs">
             <div className="w-full flex justify-between items-center">
                 <h2 className='self-start text-xl'>Mis documentos</h2>
                 {/* <form onSubmit={(e) => e.preventDefault()} className="flex gap-3 items-center">
@@ -81,7 +81,7 @@ export default function DocumentDirectory({ docs }: Props) {
 
                                             <div className={`${openMonths[key] ? 'block' : 'hidden'} pl-6`}>
                                                 {monthDocs.map((doc: DocType) => (
-                                                    <div key={doc.id} className="py-2 flex justify-between items-center border-b border-dashed border-slate-200">
+                                                    <div key={doc.id} className="py-2 flex justify-between items-center border px-4 border-dashed border-slate-200">
                                                         <div className="">
                                                             <h2 className='font-bold text-md'>{doc.doc_name}</h2>
                                                             <span className="text-xs">Fecha de Carga: {doc.created_at.slice(0, 10)}</span>
