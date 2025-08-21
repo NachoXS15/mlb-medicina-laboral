@@ -49,7 +49,7 @@ export default function SearchFormAdmin({ profiles, profile }: Props) {
 					Agregar Cliente o Usuario
 				</Link>
 			</div>
-			<div className="h-[700px] overflow-y-scroll">
+			<div className="h-fit overflow-y-scroll">
 				<TableA profiles={filteredProfiles} />
 			</div>
 		</div>

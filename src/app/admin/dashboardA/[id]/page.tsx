@@ -42,6 +42,7 @@ export default async function page({
 								<select
 									name="type"
 									className="h-10 px-5 border border-bluemain rounded-2xl"
+									defaultValue={profile?.type}
 								>
 									<option value="Pyme">Pyme</option>
 									<option value="Particular">
@@ -85,7 +86,7 @@ export default async function page({
 								<label htmlFor="">Rol</label>
 								<select
 									name="role"
-									defaultValue={profile?.status}
+									defaultValue={profile?.role}
 									className="h-10 px-5 border border-bluemain rounded-2xl"
 								>
 									<option value="client">Cliente</option>

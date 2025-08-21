@@ -49,7 +49,7 @@ export default async function page({
 					</Link>
 				</div>
 			</section>
-			<DocumentDirectory docs={docs} />
+			<DocumentDirectory docs={docs} profile={profile} />
 		</>
 	);
 }

@@ -20,7 +20,8 @@ export default function DownloadButton({filePath, size}: Props) {
     }
 
     return (
-        <button onClick={handleDownload} className="cursor-pointer">
+        <button onClick={handleDownload} className="hover:scale-105 transition cursor-pointer flex items-center gap-2 bg-green-200 px-5 py-2 rounded">
+            <span className="hidden md:inline">Descargar</span>
             <Download size={size} />
         </button>
     )

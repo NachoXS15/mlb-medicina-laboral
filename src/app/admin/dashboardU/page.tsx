@@ -32,13 +32,15 @@ export default async function page() {
         <main className='w-full min-h-screen font-main'>
             <section className="w-full min-h-screen bg-cover bg-center " style={{ backgroundImage: `url('${profile?.img}')` }}>
             {/* agregar foto de fondo y color por link  */}
-                <div className="w-full min-h-screen bg-s-shadow/50 flex items-center justify-center flex-col gap-5">
-                    <div>
-                        <Image src={logo} width={150} className="absolute left-40 top-40" alt="" />
-                        <Link href="/admin/logout" className='text-white absolute top-40 right-40'><LogOut size={30} /></Link>
+                <div className="w-full min-h-screen bg-s-shadow/50 flex items-center justify-center flex-col gap-10">
+                    <div className='w-full justify-between md:justify-around px-10 items-center flex'>
+                        <Image src={logo} width={150} className="" alt="" />
+                        <Link href="/admin/logout" className='text-white'><LogOut size={30} /></Link>
                     </div>
-                    <h2 className="text-white font-main text-center text-6xl font-bold">¡Bienvenido, {profile.name}!</h2>
-                    <a href="#docs" className="text-2xl text-white font-main hover:underline">Ver mis documentos</a>
+                    <div className='flex flex-col items-center gap-5'>
+                        <h2 className="text-white font-main text-center text-4xl leading-12 md:text-6xl font-bold">¡Bienvenido, {profile.name}!</h2>
+                        <a href="#docs" className="text-xl text-white font-main hover:underline">Ver mis documentos</a>
+                    </div>
                 </div>
             </section>
             <DocumentDirectory docs={documents} />
