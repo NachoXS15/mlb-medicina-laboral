@@ -12,15 +12,13 @@ export default async function page() {
 	const supabase = await createClient()
 	const { data, error } = await supabase.auth.getUser();
 	const { data: profile } = await supabase.from('profiles').select('role').eq('id', data.user?.id).single()
+	
 	if (!error && profile) {
 		if (profile?.role === 'admin') {
 			redirect('/admin/dashboardA')
 		} else {
 			redirect('/admin/dashboardU')
 		}
-
-	}else{
-		redirect("/admin/login")
 	}
 
 	return (
