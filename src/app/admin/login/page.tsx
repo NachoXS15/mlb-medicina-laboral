@@ -5,19 +5,23 @@ import { login } from "./actions";
 import Link from "next/link";
 import { ArrowLeftToLine } from "lucide-react";
 
-// import { createClient } from '@/app/utils/supabase/server'
-// import { redirect } from 'next/navigation'
+import { createClient } from '@/app/utils/supabase/server'
+import { redirect } from 'next/navigation'
 
 export default async function page() {
-	// const supabase = await createClient()
-	// const { data } = await supabase.auth.getUser();
+	const supabase = await createClient()
+	const { data, error } = await supabase.auth.getUser();
+	const { data: profile } = await supabase.from('profiles').select('role').eq('id', data.user?.id).single()
+	if (!error && profile) {
+		if (profile?.role === 'admin') {
+			redirect('/admin/dashboardA')
+		} else {
+			redirect('/admin/dashboardU')
+		}
 
-	// const userName = data.user?.user_metadata
-	// console.log(userName);
-
-	// if(!error || data?.user){
-	//     redirect("/dashboard")
-	// }
+	}else{
+		redirect("/admin/login")
+	}
 
 	return (
 		<main className="bg-white w-full min-h-screen flex items-center justify-center font-main ">
