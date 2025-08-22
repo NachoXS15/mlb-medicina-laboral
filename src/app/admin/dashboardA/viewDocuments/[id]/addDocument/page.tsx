@@ -1,145 +1,222 @@
-'use client'
+"use client";
 
 import { ArrowLeft, Plus } from "lucide-react";
 import Link from "next/link";
 import { supabaseClient } from "@/app/utils/supabase/client";
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useParams } from "next/navigation";
 
 export default function Page() {
-    const params = useParams<{ id: string }>();
-    const [loading, setLoading] = useState(false)
-    const [file, setFile] = useState<File | null>(null)
-    const [fileName, setFileName] = useState("");
-    const [fileActive, setFileActive] = useState(false)
+	const params = useParams<{ id: string }>();
+	const [loading, setLoading] = useState(false);
+	const [file, setFile] = useState<File | null>(null);
+	const [fileName, setFileName] = useState("");
+	const [fileActive, setFileActive] = useState(false);
 
-    const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const files = e.target.files;
-        if (files && files.length > 0) {
-            setFileActive(true)
-            setFileName(files[0].name);
-            setFile(files[0]);
-            console.log(files[0].name);
-        } else {
-            setFileName("");
-            setFile(null);
-        }
-    };
+	const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+		const files = e.target.files;
+		if (files && files.length > 0) {
+			setFileActive(true);
+			setFileName(files[0].name);
+			setFile(files[0]);
+			console.log(files[0].name);
+		} else {
+			setFileName("");
+			setFile(null);
+		}
+	};
 
-    
-    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-        const formData = new FormData(e.currentTarget)
-        const fileType = formData.get("type") as string
-        const year = formData.get("year") as string
-        const month = formData.get("month") as string
-        
-        e.preventDefault()
-        if (!file) {
-            console.log("No hay archivo");
-            return;
-        }
-        const filePath = `${params.id}/${fileName}`
-        setLoading(true)
+	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+		const formData = new FormData(e.currentTarget);
+		const fileType = formData.get("type") as string;
+		const year = formData.get("year") as string;
+		const month = formData.get("month") as string;
 
-        try {
-            const {error: errorUpload} = await supabaseClient.storage.from('docsbucket').upload(filePath, file)
-            if (errorUpload) {
-                console.error(errorUpload);
-            }
-            
-            const { error: insertError } = await supabaseClient.from("docs").insert({
-                path_name: filePath,
-                doc_name: file.name,
-                type: fileType,
-                user_id: params.id,
-                year: year,
-                month: month
-            });
-            if (insertError) {
-                console.error(insertError);
-            }
-            setLoading(false)
-            window.location.href = `/admin/dashboardA/viewDocuments/${params.id}`
-        } catch (error) {
-            console.log(error);
-        }
+		e.preventDefault();
+		if (!file) {
+			console.log("No hay archivo");
+			return;
+		}
+		const filePath = `${params.id}/${fileName}`;
+		setLoading(true);
 
-    }
+		try {
+			const { error: errorUpload } = await supabaseClient.storage
+				.from("docsbucket")
+				.upload(filePath, file);
+			if (errorUpload) {
+				console.error(errorUpload);
+			}
 
-    return (
-        <main className="flex flex-col w-full font-main my-10 text-gray-700 bg-white justify-center items-center">
-            <div className="w-10/12 xl:w-5/12">
-                <div className="flex items-center px-10 gap-3">
-                    <Link href={`/admin/dashboardA/viewDocuments/${params.id}`} className="cursor-pointer hover:scale-110 transition"><ArrowLeft /></Link>
-                    <h2 className="text-2xl font-bold text-center self-center">Carga de Documento</h2>
-                </div>
-                <form onSubmit={handleSubmit} className='w-full flex items-center shadow-xl p-10 flex-col gap-5'>
-                    <div className="flex w-full gap-5">
-                        <div className='w-full flex flex-col'>
-                            <label htmlFor="">Tipo de Documento</label>
-                            <select name="type" className='active:border-blue-500 h-10 px-5 border border-bluemain rounded-2xl'>
-                                <option value="Examenes Preocupacionales">Examenes Preocupacionales</option>
-                                <option value="Examenes Periodicos">Examenes Periodicos</option>
-                                <option value="Pericias Médicas">Pericias Médicas</option>
-                                <option value="Otros">Otros</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div className="flex w-full gap-5">
-                        <div className='w-1/2 flex flex-col'>
-                            <label htmlFor="">Año</label>
-                            <select name="year" className='w-full active:border-blue-500 h-10 px-5 border border-bluemain rounded-2xl'>
-                                <option value="2025">2025</option>
-                                <option value="2024">2024</option>
-                                <option value="2023">2023</option>
-                                <option value="2022">2022</option>
-                            </select>
-                        </div>
-                        <div className='w-1/2 flex flex-col'>
-                            <label htmlFor="">Mes</label>
-                            <select name="month" className='active:border-blue-500 w-full h-10 px-5 border border-bluemain rounded-2xl'>
-                                <option value="Enero">Enero</option>
-                                <option value="Febrero">Febrero</option>
-                                <option value="Marzo">Marzo</option>
-                                <option value="Abril">Abril</option>
-                                <option value="Mayo">Mayo</option>
-                                <option value="Junio">Junio</option>
-                                <option value="Julio">Julio</option>
-                                <option value="Agosto">Agosto</option>
-                                <option value="Septimebre">Septimebre</option>
-                                <option value="Octubre">Octubre</option>
-                                <option value="Noviembre">Noviembre</option>
-                                <option value="Diciembre">Diciembre</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div className="flex w-full gap-5">
-                        <div className="flex flex-col items-center justify-center w-full">
-                            <label
-                                htmlFor="file-upload"
-                                className="flex flex-col items-center justify-center w-full h-64 border-2 border-dashed border-bluemain rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100 transition"
-                            >
-                                <div aria-disabled={fileActive} className="flex flex-col items-center justify-center pt-5 pb-6">
-                                    <Plus />
-                                    <p className="mb-2 text-sm text-gray-500">
-                                        <span className="font-semibold">Haz clic para subir</span> o arrastra y suelta
-                                    </p>
-                                    <p className="text-xs text-gray-500">Solo archivos .PDF</p>
-                                </div>
-                                <input id="file-upload" type="file" accept="application/pdf" onChange={handleFileChange} className="hidden" />
-                            </label>
-                            {fileName && (
-                                <p className="mt-3 text-sm text-gray-700">
-                                    Archivo seleccionado: {fileName}
-                                </p>
-                            )}
-                        </div>
+			const { error: insertError } = await supabaseClient
+				.from("docs")
+				.insert({
+					path_name: filePath,
+					doc_name: file.name,
+					type: fileType,
+					user_id: params.id,
+					year: year,
+					month: month,
+				});
+			if (insertError) {
+				console.error(insertError);
+			}
+			setLoading(false);
+			window.location.href = `/admin/dashboardA/viewDocuments/${params.id}`;
+		} catch (error) {
+			console.log(error);
+		}
+	};
 
-                    </div>
-                    <button type='submit' className={`mt-5 bg-bronze text-white w-4/5 h-10 rounded-2xl transition border hover:border-bronze hover:bg-white hover:text-bronze ${loading ? 'bg-bronze/85' : null}`}>{loading ? "Subiendo... " : "Agregar Documento"}</button>
-                </form>
-            </div>
-        </main>
+	// DRAG AND DROP
 
-    )
+	const handleDragOver = (e: React.DragEvent<HTMLLabelElement>) => {
+		e.preventDefault();
+		e.stopPropagation();
+		e.currentTarget.classList.add("bg-gray-200");
+	};
+
+	const handleDragLeave = (e: React.DragEvent<HTMLLabelElement>) => {
+		e.preventDefault();
+		e.stopPropagation();
+		e.currentTarget.classList.remove("bg-gray-200");
+	};
+
+	const handleDrop = (e: React.DragEvent<HTMLLabelElement>) => {
+		e.preventDefault();
+		e.stopPropagation();
+		e.currentTarget.classList.remove("bg-gray-200");
+
+		const archivo = e.dataTransfer.files[0];
+		if (archivo && archivo.type === "application/pdf") {
+			setFileActive(true);
+			setFileName(archivo.name);
+			setFile(archivo);
+		}
+	};
+
+	return (
+		<main className="flex flex-col w-full font-main my-10 text-gray-700 bg-white justify-center items-center">
+			<div className="w-10/12 xl:w-5/12">
+				<div className="flex items-center px-10 gap-3">
+					<Link
+						href={`/admin/dashboardA/viewDocuments/${params.id}`}
+						className="cursor-pointer hover:scale-110 transition"
+					>
+						<ArrowLeft />
+					</Link>
+					<h2 className="text-2xl font-bold text-center self-center">
+						Carga de Documento
+					</h2>
+				</div>
+				<form
+					onSubmit={handleSubmit}
+					className="w-full flex items-center shadow-xl p-10 flex-col gap-5"
+				>
+					<div className="flex w-full gap-5">
+						<div className="w-full flex flex-col">
+							<label htmlFor="">Tipo de Documento</label>
+							<select
+								name="type"
+								className="active:border-blue-500 h-10 px-5 border border-bluemain rounded-2xl"
+							>
+								<option value="Examenes Preocupacionales">
+									Examenes Preocupacionales
+								</option>
+								<option value="Examenes Periodicos">
+									Examenes Periodicos
+								</option>
+								<option value="Pericias Médicas">
+									Pericias Médicas
+								</option>
+								<option value="Otros">Otros</option>
+							</select>
+						</div>
+					</div>
+					<div className="flex w-full gap-5">
+						<div className="w-1/2 flex flex-col">
+							<label htmlFor="">Año</label>
+							<select
+								name="year"
+								className="w-full active:border-blue-500 h-10 px-5 border border-bluemain rounded-2xl"
+							>
+								<option value="2025">2025</option>
+								<option value="2024">2024</option>
+								<option value="2023">2023</option>
+								<option value="2022">2022</option>
+							</select>
+						</div>
+						<div className="w-1/2 flex flex-col">
+							<label htmlFor="">Mes</label>
+							<select
+								name="month"
+								className="active:border-blue-500 w-full h-10 px-5 border border-bluemain rounded-2xl"
+							>
+								<option value="Enero">Enero</option>
+								<option value="Febrero">Febrero</option>
+								<option value="Marzo">Marzo</option>
+								<option value="Abril">Abril</option>
+								<option value="Mayo">Mayo</option>
+								<option value="Junio">Junio</option>
+								<option value="Julio">Julio</option>
+								<option value="Agosto">Agosto</option>
+								<option value="Septimebre">Septimebre</option>
+								<option value="Octubre">Octubre</option>
+								<option value="Noviembre">Noviembre</option>
+								<option value="Diciembre">Diciembre</option>
+							</select>
+						</div>
+					</div>
+					<div className="flex w-full gap-5">
+						<div className="flex flex-col items-center justify-center w-full">
+							<label
+								htmlFor="file-upload"
+								onDragOver={handleDragOver}
+								onDragLeave={handleDragLeave}
+								onDrop={handleDrop}
+								className="flex flex-col items-center justify-center w-full h-64 border-2 border-dashed border-bluemain rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100 transition"
+							>
+								<div
+									aria-disabled={fileActive}
+									id="drop-area"
+									className="flex flex-col items-center justify-center pt-5 pb-6"
+								>
+									<Plus />
+									<p className="mb-2 text-sm text-gray-500">
+										<span className="font-semibold">
+											Haz clic para subir
+										</span>{" "}
+										o arrastra y suelta
+									</p>
+									<p className="text-xs text-gray-500">
+										Solo archivos .PDF
+									</p>
+								</div>
+								<input
+									id="file-upload"
+									type="file"
+									accept="application/pdf"
+									onChange={handleFileChange}
+									className="hidden"
+								/>
+							</label>
+							{fileName && (
+								<p className="mt-3 text-sm text-gray-700">
+									Archivo seleccionado: {fileName}
+								</p>
+							)}
+						</div>
+					</div>
+					<button
+						type="submit"
+						className={`mt-5 bg-bronze text-white w-4/5 h-10 rounded-2xl transition border hover:border-bronze hover:bg-white hover:text-bronze ${
+							loading ? "bg-bronze/85" : null
+						}`}
+					>
+						{loading ? "Subiendo... " : "Agregar Documento"}
+					</button>
+				</form>
+			</div>
+		</main>
+	);
 }
