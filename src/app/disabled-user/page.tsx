@@ -1,8 +1,15 @@
-'use client'
 
 import Link from "next/link"
+import { createClient } from "../utils/supabase/server";
 
-export default function page() {
+export default async function page() {
+    const supabase = await createClient();
+    const { data } = await supabase.auth.getUser();
+    if (data.user) {
+        supabase.auth.signOut();
+        console.log("sesion cerrada");
+    }
+
     return (
         <>
             <main className="w-full min-h-screen flex items-center justify-center flex-col m-auto">
