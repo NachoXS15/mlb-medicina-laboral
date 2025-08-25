@@ -8,7 +8,7 @@ import { Clock7, MapPin, User } from "lucide-react";
 export default function Home() {
 	return (
 		<>
-			<header className=" bg-slate-200 py-2">
+			<header className=" bg-slate-200 py-2 font-main">
 				<div className="w-full flex flex-col items-center text-gray-950 lg:max-w-5xl lg:flex-row lg:mx-auto lg:justify-between lg:py-1 md:px-2">
 					<Link href="/">
 						<Image
@@ -17,7 +17,7 @@ export default function Home() {
 							width={150}
 						/>
 					</Link>
-					<nav className="flex justify-evenly items-center font-bold">
+					<nav className="flex justify-evenly items-center font-bold font-main">
 						<a
 							href="#aboutUs"
 							className="text-xs lg:text-base py-2 px-2 md:px-5 border-b-2 border-transparent hover:border-f-shadow transition-all hover:py-1"
@@ -53,7 +53,7 @@ export default function Home() {
 			</header>
 			<section
 				id="banner"
-				className="bg-f-shadow bg-[url(../../public/assets/banner-mobile.png)] md:bg-[url(../../public/assets/banner.png)]"
+				className="bg-f-shadow font-main bg-[url(../../public/assets/banner-mobile.png)] md:bg-[url(../../public/assets/banner.png)]"
 			>
 				<div className="w-full min-h-100 flex flex-col items-start justify-center text-gray-950 p-10 lg:max-w-5xl lg:mx-auto lg:py-2 lg:px-0">
 					<div id="banner-description ">
@@ -66,14 +66,14 @@ export default function Home() {
 						</h1>
 						<Link
 							href="#contact"
-							className="px-4 py-2 bg-bronze font-bold text-white rounded-full hover:scale-105 transition"
+							className="px-4 py-2 bg-bronze font-bold text-white rounded-full hover:border-bronze hover:bg-white hover:text-bronze transition"
 						>
 							Contactanos
 						</Link>
 					</div>
 				</div>
 			</section>
-			<main className="w-full min-h-100 dark:text-white flex flex-col gap-15 items-start justify-center text-gray-950 pb-10 lg:max-w-5xl lg:mx-auto lg:py-2">
+			<main className="w-full font-main min-h-100 dark:text-white flex flex-col gap-15 items-start justify-center text-gray-950 pb-10 lg:max-w-5xl lg:mx-auto lg:py-2">
 				<section
 					id="aboutUs"
 					className="w-full py-5 flex flex-col md:flex-row items-center"
@@ -255,7 +255,7 @@ export default function Home() {
 					<Carousel />
 				</section>
 			</main>
-			<div id="contact" className="bg-f-shadow">
+			<div id="contact" className="bg-f-shadow font-main">
 				<div className="w-full min-h-100 px-2 py-5 lg:max-w-5xl lg:mx-auto lg:py-4 lg:px-0">
 					<h4 className="text-2xl font-bold pl-2 md:pl-0 text-center mb-5 text-white">
 						Estamos aquí para vos

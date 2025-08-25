@@ -25,8 +25,6 @@ export default async function page() {
         console.log(docError);
         return;
     }
-
-    console.log(documents);
     
     return (
         <main className='w-full min-h-screen font-main'>

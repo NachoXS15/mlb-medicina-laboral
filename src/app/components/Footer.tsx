@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Mail, Phone } from "lucide-react";
 export default async function Footer() {
 	return (
-		<footer className="bg-s-shadow py-5 min-h-30">
+		<footer className="bg-s-shadow py-5 min-h-30 font-main">
 			<div className="w-full text-white flex flex-col items-start justify-center lg:max-w-5xl lg:mx-auto lg:py-2">
 				<div className="flex flex-col gap-3 lg:flex-row lg:gap-15 px-5 pb-5">
 					<div className="flex flex-col lg:flex-row items-center lg:w-1/2">
@@ -30,8 +30,8 @@ export default async function Footer() {
 						<ul className="list-none text-xs flex flex-col gap-2">
 							<li className="flex gap-2 items-center">
 								<Mail color="white" size={20} />
-								<a href="mailto:laurabasso28@hotmail.com">
-									laurabasso28@hotmail.com
+								<a href="mailto:drabassocorominas@hotmail.com">
+									drabassocorominas@hotmail.com
 								</a>
 							</li>
 							<li className="flex gap-2 items-center">

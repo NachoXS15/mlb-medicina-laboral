@@ -11,7 +11,4 @@ export default async function page() {
     }else{
         redirect("/admin/login");
     }
-    return(
-        <div className="bg-white">Cerrando sesion</div>
-    )
 }
