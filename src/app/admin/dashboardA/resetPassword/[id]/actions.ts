@@ -2,7 +2,6 @@
 'use server'
 
 import { createClient } from '@supabase/supabase-js'
-import { permanentRedirect } from 'next/navigation'
 
 type ActionState = {
   error?: string

@@ -2,8 +2,12 @@ import { fetchProfilebyId } from "@/app/lib/data-server"
 import { ArrowLeft } from "lucide-react"
 import Link from "next/link"
 import ResetForm from "./form"
+import { InferGetServerSidePropsType } from "next"
+import { getServerSideProps } from "next/dist/build/templates/pages"
 
-export default async function Page({ params }: { params: { id: string } }) {
+export default async function Page({
+    params,
+}: InferGetServerSidePropsType<typeof getServerSideProps>) {
   const { id } = params
   const profile = await fetchProfilebyId(id)
 
