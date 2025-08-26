@@ -1,6 +1,6 @@
 import { ProfileType } from "@/app/config/definitions";
 import { ActiveField } from "@/app/config/DynamicFieldsStyles";
-import { Pencil } from "lucide-react";
+import { Pencil, RefreshCcwDot } from "lucide-react";
 import Link from "next/link";
 
 export default function TableA({profiles}: {profiles:ProfileType[]}) {
@@ -32,6 +32,7 @@ export default function TableA({profiles}: {profiles:ProfileType[]}) {
                             <td className="p-4 border text-sm border-slate-200">{profile.role === "admin" ? "Administrador" : "Cliente"}</td>
                             <td className="p-4 border text-sm border-slate-200"><Link href={`/admin/dashboardA/viewDocuments/${profile.id}`} className="hover:underline text-bluemain">Ver Documentos</Link></td>
                             <td className="p-4 text-center hover:scale-105 transition hover:text-orange-500"><Link href={`/admin/dashboardA/${profile.id}`}><Pencil></Pencil></Link></td>
+                            <td className="p-4 text-center hover:scale-105 transition hover:text-orange-500"><Link href={`/admin/dashboardA/resetPassword/${profile.id}`}><RefreshCcwDot></RefreshCcwDot></Link></td>
                         </tr>
                     )
                 })}
