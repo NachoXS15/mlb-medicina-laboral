@@ -89,6 +89,9 @@ export default function Page() {
                         <div className='w-1/2 flex flex-col'>
                             <label htmlFor="">Año</label>
                             <select name="year" className='w-full active:border-blue-500 h-10 px-5 border border-bluemain rounded-2xl'>
+                                <option value="2028">2028</option>
+                                <option value="2027">2027</option>
+                                <option value="2026">2026</option>
                                 <option value="2025">2025</option>
                                 <option value="2024">2024</option>
                                 <option value="2023">2023</option>
