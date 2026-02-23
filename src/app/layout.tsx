@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Merriweather_Sans } from "next/font/google";
 import "./globals.css";
-import './loader.css'
+import "./loader.css";
 
 const geistSans = Geist({
 	variable: "--font-geist-sans",
@@ -20,8 +20,52 @@ const merriweatherSans = Merriweather_Sans({
 });
 
 export const metadata: Metadata = {
-	title: "Dra. Basso - Medicina laboral en La Rioja",
-	description: "Auditorias médicas en La Rioja",
+	title: "Dra. Basso | Medicina Laboral para Empresas en La Rioja",
+	description:
+		"Medicina Laboral en La Rioja desde 2010. Exámenes preocupacionales, control de ausentismo, auditorías médicas, médico en planta y más. Atención a empresas.",
+	keywords:
+		"medicina laboral La Rioja, exámenes preocupacionales La Rioja, control ausentismo, auditorías médicas, médico en planta La Rioja, Dra Basso",
+	authors: [{ name: "Dra. Laura Basso Corominas" }],
+	metadataBase: new URL("https://www.mlb-medicinalaboral.com.ar"),
+	alternates: {
+		canonical: "/",
+	},
+	openGraph: {
+		type: "website",
+		title: "Dra. Basso | Medicina Laboral para Empresas en La Rioja",
+		description:
+			"Especialistas en medicina del trabajo desde 2010 en La Rioja. Exámenes preocupacionales, auditorías, control de ausentismo y más.",
+		url: "https://www.mlb-medicinalaboral.com.ar/",
+		locale: "es_AR",
+		images: [{ url: "/assets/og-image.jpg" }],
+	},
+	other: {
+		"geo.region": "AR-F",
+		"geo.placename": "La Rioja, Argentina",
+		"geo.position": "-29.4131;-66.8558",
+		ICBM: "-29.4131, -66.8558",
+		telephone: "+5493804627098",
+	},
+};
+
+const jsonLd = {
+	"@context": "https://schema.org",
+	"@type": "MedicalBusiness",
+	name: "Medicina Laboral Dra. Basso",
+	description:
+		"Especialistas en medicina del trabajo para empresas en La Rioja desde 2010.",
+	url: "https://www.mlb-medicinalaboral.com.ar/",
+	telephone: "+5493804627098",
+	email: "drabassocorominas@hotmail.com",
+	address: {
+		"@type": "PostalAddress",
+		streetAddress: "Corrientes 780",
+		addressLocality: "La Rioja",
+		addressRegion: "La Rioja",
+		addressCountry: "AR",
+	},
+	openingHours: "Mo-Fr 10:30-12:00, Mo-Fr 18:30-19:30",
+	medicalSpecialty: "Occupational Medicine",
 };
 
 export default function RootLayout({
@@ -30,30 +74,15 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="en">
-			<head>
-				<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-				<title>Dra. Basso | Medicina Laboral para Empresas en La Rioja</title>
-				<meta name="description" content="Medicina Laboral en La Rioja desde 2010. Exámenes preocupacionales, control de ausentismo, auditorías médicas, médico en planta y más. Atención a empresas." />
-				<meta name="keywords" content="medicina laboral La Rioja, exámenes preocupacionales La Rioja, control ausentismo, auditorías médicas, médico en planta La Rioja, Dra Basso" />
-				<meta name="author" content="Dra. Laura Basso Corominas" />
-				<link rel="canonical" href="https://www.mlb-medicinalaboral.com.ar/" />
-				<meta property="og:type" content="website" />
-				<meta property="og:title" content="Dra. Basso | Medicina Laboral para Empresas en La Rioja" />
-				<meta property="og:description" content="Especialistas en medicina del trabajo desde 2010 en La Rioja. Exámenes preocupacionales, auditorías, control de ausentismo y más." />
-				<meta property="og:url" content="https://www.mlb-medicinalaboral.com.ar/" />
-				<meta property="og:image" content="https://www.mlb-medicinalaboral.com.ar/assets/og-image.jpg" />
-				<meta property="og:locale" content="es_AR" />
-				<meta name="geo.region" content="AR-F" />
-				<meta name="geo.placename" content="La Rioja, Argentina" />
-				<meta name="geo.position" content="-29.4131;-66.8558" />
-				<meta name="ICBM" content="-29.4131, -66.8558" />
-				
-			</head>
+		<html lang="es">
 			<body
 				className={`${geistSans.variable} ${geistMono.variable} ${merriweatherSans.variable} scroll-smooth antialiased`}
 			>
 				{children}
+				<script
+					type="application/ld+json"
+					dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+				/>
 			</body>
 		</html>
 	);
