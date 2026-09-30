@@ -1,9 +1,0 @@
-User-agent: *
-Allow: /
-
-# Bloquear rutas internas de Next.js que no aportan SEO
-Disallow: /_next/
-Disallow: /api/
-
-# Sitemap
-Sitemap: https://www.mlb-medicinalaboral.com.ar/sitemap.xml

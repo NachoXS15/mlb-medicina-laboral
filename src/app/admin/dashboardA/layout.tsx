@@ -1,22 +1,22 @@
 import HeaderA from "@/app/components/HeaderA";
-import { createClient } from "@/app/utils/supabase/server";
+import { getSessionProfile } from "@/app/lib/auth";
 import { redirect } from "next/navigation";
 
-export default async function layout({ children }: { children: React.ReactNode }) {
+// Protege las PÁGINAS de admin. Las Server Actions se protegen aparte con requireAdmin().
+export default async function Layout({ children }: { children: React.ReactNode }) {
+	const session = await getSessionProfile();
 
-  const supabase = await createClient()
-  const { data, error } = await supabase.auth.getUser()
-  const { data: profile } = await supabase.from('profiles').select('*').eq('id', data.user?.id).single()
+	if (!session) {
+		redirect("/admin/login");
+	}
+	if (session.profile.role !== "admin") {
+		redirect("/admin/dashboardU");
+	}
 
-  if (error || !data?.user || profile.status == "Inactivo") {
-    redirect('/admin/login')
-  } else if (profile?.role == "client") {
-    redirect('/admin/dashboardU')
-  }
-  return (
-    <>
-      <HeaderA />
-      {children}
-    </>
-  )
+	return (
+		<>
+			<HeaderA />
+			{children}
+		</>
+	);
 }

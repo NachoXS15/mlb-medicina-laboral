@@ -43,10 +43,11 @@ export default async function Footer() {
 				</div>
 			</div>
 			<p className="text-center text-sm text-white">
-				Copyright &copy; 2025 | Diseñado por:{" "}
+				Copyright &copy; {new Date().getFullYear()} | Diseñado por:{" "}
 				<a
 					href="https://devignaciopantoja.com.ar/"
 					target="_blank"
+					rel="noopener noreferrer"
 					className="text-bronze"
 				>
 					Pantoja Ignacio
