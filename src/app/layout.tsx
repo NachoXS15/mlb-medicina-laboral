@@ -37,7 +37,7 @@ export const metadata: Metadata = {
 			"Especialistas en medicina del trabajo desde 2010 en La Rioja. Exámenes preocupacionales, auditorías, control de ausentismo y más.",
 		url: "https://www.mlb-medicinalaboral.com.ar/",
 		locale: "es_AR",
-		images: [{ url: "/assets/og-image.jpg" }],
+		images: [{ url: "/assets/og-image.jpg", width: 1200, height: 630, alt: "MLB Medicina Laboral - Dra. Basso" }],
 	},
 	other: {
 		"geo.region": "AR-F",
@@ -86,4 +86,4 @@ export default function RootLayout({
 			</body>
 		</html>
 	);
-}
+}

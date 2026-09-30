@@ -5,7 +5,7 @@ import { useActionState, useEffect } from 'react'
 import { reset } from './actions'
 
 export default function ResetForm({ id }: { id: string }) {
-    const [state, formAction] = useActionState(reset, {})
+    const [state, formAction, pending] = useActionState(reset, {})
     useEffect(() => {
         if (state?.success) {
             window.location.href = "/admin/dashboardA"
@@ -22,6 +22,9 @@ export default function ResetForm({ id }: { id: string }) {
                     <input
                         type="password"
                         name="password"
+                        required
+                        minLength={8}
+                        autoComplete="new-password"
                         className="h-10 px-5 border border-bluemain rounded-2xl"
                     />
                 </div>
@@ -33,6 +36,9 @@ export default function ResetForm({ id }: { id: string }) {
                     <input
                         type="password"
                         name="confirm-password"
+                        required
+                        minLength={8}
+                        autoComplete="new-password"
                         className="h-10 px-5 border border-bluemain rounded-2xl"
                     />
                 </div>
@@ -42,9 +48,10 @@ export default function ResetForm({ id }: { id: string }) {
                 )}
 
                 <button
-                    className="mt-5 bg-bronze text-white h-10 rounded-2xl transition border hover:border-bronze hover:bg-white hover:text-bronze"
+                    disabled={pending}
+                    className="mt-5 disabled:opacity-60 bg-bronze text-white h-10 rounded-2xl transition border hover:border-bronze hover:bg-white hover:text-bronze"
                 >
-                    Actualizar contraseña
+                    {pending ? "Actualizando..." : "Actualizar contraseña"}
                 </button>
             </div>
         </form>

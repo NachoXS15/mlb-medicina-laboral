@@ -1,6 +1,6 @@
+import { redirect } from "next/navigation";
 
-export default async function page() {
-  return (
-    <div>page</div>
-  )
+// La sección de contacto vive en la home.
+export default function Page() {
+	redirect("/#contact");
 }

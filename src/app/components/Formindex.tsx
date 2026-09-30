@@ -1,6 +1,6 @@
 "use client";
 import emailjs from "@emailjs/browser";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 export default function Form() {
 	const NEXT_PUBLIC_EMAILJS_SERVICE_ID = process.env
@@ -11,9 +11,10 @@ export default function Form() {
 		.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY as string;
 
 	const form = useRef<HTMLFormElement>(null);
+	const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
-		// descomentar cuando estemos listos
+		if (status === "sending") return;
 		if (form.current) {
 			const formData = new FormData(form.current);
 			const nombre = (formData.get("nombre") as string)?.trim();
@@ -21,18 +22,11 @@ export default function Form() {
 			const correo = (formData.get("correo") as string)?.trim();
 			const telefono = (formData.get("telefono") as string)?.trim();
 			const mensaje = (formData.get("mensaje") as string)?.trim();
-			/*
-            nombre
-            asunto
-            telefono
-            correo
-            mensaje
-            */
 			if (!nombre || !correo || !mensaje || !asunto || !telefono) {
-				console.warn("Campos obligatorios incompletos");
-				alert("Por favor completa todos los campos obligatorios.");
+				setStatus("error");
 				return;
 			}
+			setStatus("sending");
 			emailjs
 				.sendForm(
 					NEXT_PUBLIC_EMAILJS_SERVICE_ID,
@@ -43,11 +37,12 @@ export default function Form() {
 					}
 				)
 				.then(() => {
-					console.log("Mail enviado");
+					setStatus("sent");
 					form.current?.reset();
 				})
 				.catch((err) => {
-					console.log("Error al enviar", err);
+					console.error("Error al enviar", err);
+					setStatus("error");
 				});
 		}
 	};
@@ -108,11 +103,17 @@ export default function Form() {
 			<div className="flex w-full">
 				<button
 					type="submit"
-					className="bg-bronze w-full py-2 rounded-xl hover:text-white cursor-pointer transition"
+					disabled={status === "sending"}
+					className="bg-bronze w-full py-2 rounded-xl hover:text-white cursor-pointer transition disabled:opacity-60"
 				>
-					Enviar consulta
+					{status === "sending" ? "Enviando..." : "Enviar consulta"}
 				</button>
 			</div>
+			<p className="text-sm text-white min-h-5" role="status" aria-live="polite">
+				{status === "sent" && "¡Gracias! Recibimos tu consulta y te vamos a responder a la brevedad."}
+				{status === "error" &&
+					"No pudimos enviar la consulta. Revisá los campos o escribinos a drabassocorominas@hotmail.com."}
+			</p>
 		</form>
 	);
 }

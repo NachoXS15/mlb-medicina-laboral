@@ -1,6 +1,7 @@
 import Image from "next/image";
 import logo from "../assets/logo_blanco.webp";
 import Link from "next/link";
+import { signOut } from "../lib/auth-actions";
 
 export default function HeaderA() {
 	return (
@@ -11,26 +12,26 @@ export default function HeaderA() {
 						src={logo}
 						width={150}
 						className="hidden md:block m-auto"
-						alt=""
+						alt="MLB Medicina Laboral"
 					/>
 					<Image
 						src={logo}
 						width={120}
 						className="block md:hidden m-auto"
-						alt=""
+						alt="MLB Medicina Laboral"
 					/>
 				</Link>
 				<p className="text-white text-base md:text-xl">
 					Sistema de Gestión de Clientes
 				</p>
-				<nav>
-					<Link
-						href="/admin/logout"
-						className="bg-bronze text-slate-100 px-5 py-2 rounded-full hover:underline transition"
+				<form action={signOut}>
+					<button
+						type="submit"
+						className="bg-bronze text-slate-100 px-5 py-2 rounded-full hover:underline transition cursor-pointer"
 					>
 						Cerrar sesión
-					</Link>
-				</nav>
+					</button>
+				</form>
 			</div>
 		</header>
 	);

@@ -1,164 +1,128 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
-import { useState } from "react";
-import { DocType, ProfileType } from "../config/definitions";
+import { useMemo, useState } from "react";
+import { DocType, MONTHS, normalizeMonth } from "../config/definitions";
 import DownloadButton from "./DownloadButton";
 import DeleteButton from "./DeleteButton";
 
 type Props = {
-    docs: DocType[];
-    profile?: ProfileType | null
+	docs: DocType[] | null;
+	/** Muestra el botón de eliminar (solo vista de admin). */
+	canDelete?: boolean;
+	title?: string;
 };
 
-export default function DocumentDirectory({ docs, profile }: Props) {
-    // revisa los años y meses abiertos
-    const [openYears, setOpenYears] = useState<{ [year: string]: boolean }>({});
-    const [openMonths, setOpenMonths] = useState<{ [key: string]: boolean }>(
-        {}
-    );
+type Grouped = Record<string, Record<string, DocType[]>>;
 
-    // Agrupar documentos por año y luego por mes
-    const groupedDocs = docs.reduce((acc: any, doc) => {
-        if (!doc.year || !doc.month) return acc;
+const monthIndex = (m: string) => {
+	const i = (MONTHS as readonly string[]).indexOf(m);
+	return i === -1 ? 99 : i;
+};
 
-        if (!acc[doc.year]) acc[doc.year] = {};
-        if (!acc[doc.year][doc.month]) acc[doc.year][doc.month] = [];
+export default function DocumentDirectory({ docs, canDelete = false, title = "Mis documentos" }: Props) {
+	const [openYears, setOpenYears] = useState<Record<string, boolean>>({});
+	const [openMonths, setOpenMonths] = useState<Record<string, boolean>>({});
 
-        acc[doc.year][doc.month].push(doc);
-        return acc;
-    }, {});
+	// Agrupar documentos por año y luego por mes
+	const groupedDocs = useMemo(() => {
+		return (docs ?? []).reduce<Grouped>((acc, doc) => {
+			if (!doc.year || !doc.month) return acc;
+			const month = normalizeMonth(doc.month);
+			acc[doc.year] ??= {};
+			acc[doc.year][month] ??= [];
+			acc[doc.year][month].push(doc);
+			return acc;
+		}, {});
+	}, [docs]);
 
-    //funcion q abre o colapsa el acorden por año
-    const toggleYear = (year: string) => {
-        setOpenYears((prev) => ({ ...prev, [year]: !prev[year] }));
-    };
+	const toggleYear = (year: string) => {
+		setOpenYears((prev) => ({ ...prev, [year]: !prev[year] }));
+	};
 
-    //funcion q abre o colapsa el acorden por año
-    const toggleMonth = (year: string, month: string) => {
-        const key = `${year}-${month}`;
-        setOpenMonths((prev) => ({ ...prev, [key]: !prev[key] }));
-    };
+	const toggleMonth = (year: string, month: string) => {
+		const key = `${year}-${month}`;
+		setOpenMonths((prev) => ({ ...prev, [key]: !prev[key] }));
+	};
 
-    // agrupa los años en orden descendente
-    const sortedYears = Object.keys(groupedDocs).sort(
-        (a, b) => Number(b) - Number(a)
-    );
+	// Años en orden descendente
+	const sortedYears = Object.keys(groupedDocs).sort((a, b) => Number(b) - Number(a));
 
-    return (
-        <section
-            className="w-10/12 m-auto py-10 min-h-screen font-main flex items-center justify-center flex-col gap-3"
-            id="docs"
-        >
-            <div className="w-full flex justify-between items-center">
-                <h2 className="self-start text-xl">Mis documentos</h2>
-                {/* <form onSubmit={(e) => e.preventDefault()} className="flex gap-3 items-center">
-                    <input type="text" value={query} onChange={(e) => setQuery(e.target.value)} className="h-9 w-62 px-2 border rounded border-bronze" placeholder="Buscar Documento" />
-                </form> */}
-            </div>
-            <section className="w-full h-[700px] border border-slate-300">
-                {sortedYears.length === 0 ? (
-                    <div className="flex items-center justify-center w-full h-full">
-                        <h2>No hay documentos cargados.</h2>
-                    </div>
-                ) : (
-                    sortedYears.map((year) => (
-                        <div key={year} className="border-b border-slate-300">
-                            <button
-                                onClick={() => toggleYear(year)}
-                                className="w-full hover:bg-slate-200 rounded px-5 flex justify-between items-center py-5 text-slate-800"
-                            >
-                                <span className="text-xl font-bold">
-                                    {year}
-                                </span>
-                                <span className="text-xl">
-                                    {openYears[year] ? "-" : "+"}
-                                </span>
-                            </button>
+	return (
+		<section
+			className="w-10/12 m-auto py-10 min-h-screen font-main flex items-center justify-center flex-col gap-3"
+			id="docs"
+		>
+			<div className="w-full flex justify-between items-center">
+				<h2 className="self-start text-xl">{title}</h2>
+			</div>
+			<section className="w-full h-[700px] overflow-y-auto border border-slate-300">
+				{sortedYears.length === 0 ? (
+					<div className="flex items-center justify-center w-full h-full">
+						<h2>No hay documentos cargados.</h2>
+					</div>
+				) : (
+					sortedYears.map((year) => (
+						<div key={year} className="border-b border-slate-300">
+							<button
+								onClick={() => toggleYear(year)}
+								aria-expanded={!!openYears[year]}
+								className="w-full hover:bg-slate-200 rounded px-5 flex justify-between items-center py-5 text-slate-800"
+							>
+								<span className="text-xl font-bold">{year}</span>
+								<span className="text-xl">{openYears[year] ? "-" : "+"}</span>
+							</button>
 
-                            {/* Acordeón de meses */}
-                            <div
-                                className={`${openYears[year] ? "block" : "hidden"
-                                    } px-5`}
-                            >
-                                {Object.keys(groupedDocs[year]).map((month) => {
-                                    const key = `${year}-${month}`;
-                                    const monthDocs = groupedDocs[year][month];
+							{/* Acordeón de meses */}
+							<div className={`${openYears[year] ? "block" : "hidden"} px-5`}>
+								{Object.keys(groupedDocs[year])
+									.sort((a, b) => monthIndex(a) - monthIndex(b))
+									.map((month) => {
+										const key = `${year}-${month}`;
+										const monthDocs = groupedDocs[year][month];
 
-                                    return (
-                                        <div
-                                            key={key}
-                                            className="border-t border-slate-200 py-3"
-                                        >
-                                            <button
-                                                onClick={() =>
-                                                    toggleMonth(year, month)
-                                                }
-                                                className="w-full text-left hover:bg-slate-100 px-4 py-3 flex justify-between items-center text-slate-700"
-                                            >
-                                                <span className="text-md font-medium">
-                                                    {month}
-                                                </span>
-                                                <span className="text-md">
-                                                    {openMonths[key]
-                                                        ? "-"
-                                                        : "+"}
-                                                </span>
-                                            </button>
+										return (
+											<div key={key} className="border-t border-slate-200 py-3">
+												<button
+													onClick={() => toggleMonth(year, month)}
+													aria-expanded={!!openMonths[key]}
+													className="w-full text-left hover:bg-slate-100 px-4 py-3 flex justify-between items-center text-slate-700"
+												>
+													<span className="text-md font-medium">{month}</span>
+													<span className="text-md">{openMonths[key] ? "-" : "+"}</span>
+												</button>
 
-                                            <div
-                                                className={`${openMonths[key]
-                                                        ? "block"
-                                                        : "hidden"
-                                                    } pl-3 md:pl-6`}
-                                            >
-                                                {monthDocs.map(
-                                                    (doc: DocType) => (
-                                                        <div
-                                                            key={doc.id}
-                                                            className="w-full py-2 flex flex-col md:flex-row gap-2 justify-between items-center border md:px-4 border-dashed border-slate-200"
-                                                        >
-                                                            <div className="">
-                                                                <h2 className="font-bold text-md">
-                                                                    {
-                                                                        doc.doc_name
-                                                                    }
-                                                                </h2>
-                                                                <span className="text-xs">
-                                                                    Fecha de
-                                                                    Carga:{" "}
-                                                                    {doc.created_at.slice(
-                                                                        0,
-                                                                        10
-                                                                    )}
-                                                                </span>
-                                                            </div>
-                                                            <span className="h-fit py-2 px-5 text-xs bg-blue-200 rounded">
-                                                                {doc.type}
-                                                            </span>
-                                                            <div className="flex items-center justify-center gap-5 text-xs px-0 w-full md:w-fit">
-                                                                <DownloadButton
-                                                                    size={
-                                                                        20
-                                                                    }
-                                                                    filePath={
-                                                                        doc.path_name
-                                                                    }
-                                                                />
-                                                                {profile ? <DeleteButton filePath={doc.path_name} id={doc.id} /> : ""}
-                                                            </div>
-                                                        </div>
-                                                    )
-                                                )}
-                                            </div>
-                                        </div>
-                                    );
-                                })}
-                            </div>
-                        </div>
-                    ))
-                )}
-            </section>
-        </section>
-    );
+												<div className={`${openMonths[key] ? "block" : "hidden"} pl-3 md:pl-6`}>
+													{monthDocs.map((doc) => (
+														<div
+															key={doc.id}
+															className="w-full py-2 flex flex-col md:flex-row gap-2 justify-between items-center border md:px-4 border-dashed border-slate-200"
+														>
+															<div>
+																<h2 className="font-bold text-md break-all">{doc.doc_name}</h2>
+																<span className="text-xs">
+																	Fecha de Carga: {doc.created_at?.slice(0, 10)}
+																</span>
+															</div>
+															<span className="h-fit py-2 px-5 text-xs bg-blue-200 rounded">
+																{doc.type}
+															</span>
+															<div className="flex items-center justify-center gap-5 text-xs px-0 w-full md:w-fit">
+																<DownloadButton size={20} docId={doc.id} />
+																{canDelete && (
+																	<DeleteButton docId={doc.id} docName={doc.doc_name} />
+																)}
+															</div>
+														</div>
+													))}
+												</div>
+											</div>
+										);
+									})}
+							</div>
+						</div>
+					))
+				)}
+			</section>
+		</section>
+	);
 }
